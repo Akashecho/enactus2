@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="container" style="padding-top: 150px;">
+    <h1 data-aos="fade-right" style="font-size: 4rem; margin-bottom: 1rem;">The Minds</h1>
+    <p style="margin-bottom: 3rem; color: var(--text-muted);">Meet the people driving change.</p>
+
+    <!-- Filters -->
+    <div class="filters">
+        <select id="yearFilter" onchange="filterTeam()">
+            <option value="all">All Years</option>
+            <option value="2024">Current Session (2024)</option>
+            <option value="2023">Previous Year (2023)</option>
+            <option value="2022">Alumni (2022)</option>
+        </select>
+
+        <select id="deptFilter" onchange="filterTeam()">
+            <option value="all">All Departments</option>
+            <option value="tech">Tech & Design</option>
+            <option value="marketing">Marketing</option>
+            <option value="research">Research</option>
+            <option value="executive">Executive Board</option>
+        </select>
+    </div>
+
+    <!-- Team Grid (Populated via JS for demo) -->
+    <div class="team-grid" id="teamContainer">
+        <!-- Members injected here -->
+    </div>
+</section>
+{% endblock %}

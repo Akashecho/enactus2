@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="container" style="padding-top: 150px;">
+    
+    <!-- Hero Text -->
+    <div style="margin-bottom: 5rem;" data-aos="fade-right">
+        <h1 style="font-size: 5rem; line-height: 1;">We Are <br><span style="color: var(--brand-yellow);">Change Makers.</span></h1>
+    </div>
+
+    <!-- Mission Section -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 6rem;">
+        <div data-aos="fade-up">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 4px; filter: grayscale(100%); transition: 0.5s;" onmouseover="this.style.filter='grayscale(0)'" onmouseout="this.style.filter='grayscale(100%)'" alt="Team working">
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Our Mission</h3>
+            <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
+                enactus is dedicated to creating a better world while developing the next generation of leaders and social entrepreneurs. We believe that investing in students who take entrepreneurial action for others creates a better world for us all.
+            </p>
+            <br>
+            <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
+                Founded in 2015, our chapter has grown from a small group of dreamers to a powerhouse of action.
+            </p>
+        </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div style="background: #121212; color: #fff; padding: 4rem; border-radius: 4px; display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center;" data-aos="zoom-in">
+        <div>
+            <h2 style="font-size: 3rem; color: var(--brand-yellow);">50+</h2>
+            <p>Active Members</p>
+        </div>
+        <div>
+            <h2 style="font-size: 3rem; color: var(--brand-yellow);">12</h2>
+            <p>Projects Launched</p>
+        </div>
+        <div>
+            <h2 style="font-size: 3rem; color: var(--brand-yellow);">5k+</h2>
+            <p>Lives Impacted</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

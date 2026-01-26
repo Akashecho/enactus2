@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- Flash Messages for Success/Failure -->
+<div class="flash-messages">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-msg" style="border-color: {{ '#16a34a' if category == 'success' else '#dc2626' }};">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+<section class="container" style="padding-top: 150px;">
+    
+    <div style="margin-bottom: 4rem;" data-aos="fade-up">
+        <h1 style="font-size: 4rem;">Events</h1>
+        <p style="color: var(--text-muted);">Join the movement. Register for upcoming sessions below.</p>
+    </div>
+
+    <div class="event-list">
+        {% for event in events %}
+        <!-- Card Start -->
+        <div class="event-card" data-aos="fade-up" onclick="toggleEvent(this)">
+            
+            <!-- 1. Visible Header -->
+            <div class="event-header">
+                <div class="event-date-block">
+                    <span class="date-day">{{ event.date_day }}</span>
+                    <span class="date-month">{{ event.date_month }}</span>
+                </div>
+                
+                <div class="event-header-content">
+                    {% if event.is_open %}
+                        <span class="status-badge open">● Registration Open</span>
+                    {% else %}
+                        <span class="status-badge closed">● Closed</span>
+                    {% endif %}
+                    
+                    <h3 style="margin: 0;">{{ event.title }}</h3>
+                    <p style="margin: 0.5rem 0 0; color: var(--text-muted); font-size: 0.95rem;">
+                        {{ event.short_desc }}
+                    </p>
+                </div>
+
+                <div class="event-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+            </div>
+
+            <!-- 2. Hidden Dropdown Body -->
+            <div class="event-body">
+                <div class="body-inner">
+                    
+                    <!-- Left Column: Details -->
+                    <div class="event-details-col">
+                        <img src="{{ event.image_url }}" class="event-hero-img" alt="Event">
+                        <h4>About this Event</h4>
+                        <p style="color: #555; font-size: 0.95rem; line-height: 1.7;">{{ event.full_desc }}</p>
+                    </div>
+
+                    <!-- Right Column: Registration Form -->
+                    <div class="event-form-col">
+                        {% if event.is_open %}
+                            <div class="reg-form-container" onclick="event.stopPropagation()">
+                                <h4 style="margin-bottom: 1.5rem;">Secure your spot</h4>
+                                
+                                <form action="{{ url_for('register_event') }}" method="POST">
+                                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                                    
+                                    <div class="form-group">
+                                        <label>Full Name</label>
+                                        <input type="text" name="name" class="premium-input" placeholder="e.g. John Doe" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>College Email</label>
+                                        <input type="email" name="email" class="premium-input" placeholder="john@college.edu" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Student ID</label>
+                                        <input type="text" name="student_id" class="premium-input" placeholder="e.g. 2024001" required>
+                                    </div>
+
+                                    <button type="submit" class="btn-primary" style="width: 100%; border:none; margin-top: 1rem;">
+                                        Confirm Registration
+                                    </button>
+                                </form>
+                            </div>
+                        {% else %}
+                            <!-- Closed State -->
+                            <div class="reg-form-container" style="text-align: center; padding: 4rem 2rem; opacity: 0.6;">
+                                <h4 style="color: #dc2626;">Registration Closed</h4>
+                                <p>We have reached maximum capacity for this event.</p>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- Card End -->
+        {% endfor %}
+    </div>
+
+</section>
+{% endblock %}

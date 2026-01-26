@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="container" style="padding-top: 150px;">
+    <div style="text-align: center; margin-bottom: 4rem;" data-aos="fade-up">
+        <h1 style="font-size: 3.5rem;">The Store</h1>
+        <p style="color: var(--text-muted);">Wear the movement. All proceeds go to our projects.</p>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card" data-aos="fade-up">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80" alt="Tee">
+                <div class="overlay">
+                    <button class="btn-primary">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Classic Tee / White</h3>
+                <p>$25.00</p>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Bag">
+                <div class="overlay">
+                    <button class="btn-primary">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Canvas Tote</h3>
+                <p>$15.00</p>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1551028919-ac6635f0e5c9?auto=format&fit=crop&w=600&q=80" alt="Hoodie">
+                <div class="overlay">
+                    <button class="btn-primary">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Signature Hoodie</h3>
+                <p>$45.00</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
