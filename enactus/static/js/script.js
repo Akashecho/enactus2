@@ -113,6 +113,86 @@ function initParallaxEffect() {
 }
 
 // =============================================
+// 3D TILT EFFECT FOR PORTRAIT CARDS
+// =============================================
+
+function initTiltEffect() {
+    const cards = document.querySelectorAll('.portrait-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 15;
+            const rotateY = (centerX - x) / 15;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    });
+}
+
+// =============================================
+// GALLERY HORIZONTAL SCROLL
+// =============================================
+
+function scrollGallery(direction) {
+    const wrapper = document.querySelector('.gallery-scroll-wrapper');
+    if (!wrapper) return;
+    
+    const scrollAmount = 350;
+    wrapper.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+}
+
+function initGalleryDrag() {
+    const wrapper = document.querySelector('.gallery-scroll-wrapper');
+    if (!wrapper) return;
+    
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    wrapper.addEventListener('mousedown', (e) => {
+        isDown = true;
+        wrapper.style.cursor = 'grabbing';
+        startX = e.pageX - wrapper.offsetLeft;
+        scrollLeft = wrapper.scrollLeft;
+    });
+    
+    wrapper.addEventListener('mouseleave', () => {
+        isDown = false;
+        wrapper.style.cursor = 'grab';
+    });
+    
+    wrapper.addEventListener('mouseup', () => {
+        isDown = false;
+        wrapper.style.cursor = 'grab';
+    });
+    
+    wrapper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - wrapper.offsetLeft;
+        const walk = (x - startX) * 2;
+        wrapper.scrollLeft = scrollLeft - walk;
+    });
+    
+    // Set initial cursor
+    wrapper.style.cursor = 'grab';
+}
+
+// =============================================
 // TEAM DATA - STRUCTURED BY TENURE & CATEGORY
 // =============================================
 
@@ -218,8 +298,40 @@ const legacyData = [
 ];
 
 // =============================================
-// RENDER FUNCTIONS
+// RENDER FUNCTIONS - PORTRAIT CARDS
 // =============================================
+
+function renderPortraitCard(member, showDept = false) {
+    const deptHtml = showDept && member.dept ? `<span class="portrait-dept">${member.dept}</span>` : '';
+    
+    return `
+        <div class="portrait-card" data-aos="fade-up">
+            <div class="portrait-image">
+                <img src="${member.img}" alt="${member.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500?text=${encodeURIComponent(member.name)}'">
+                <div class="portrait-gradient"></div>
+            </div>
+            <div class="portrait-info">
+                <h3 class="portrait-name">${member.name}</h3>
+                <span class="portrait-role">${member.role}</span>
+                ${deptHtml}
+                <div class="portrait-socials">
+                    <a href="${member.linkedin || '#'}" target="_blank" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+}
 
 function renderMemberCard(member, showDept = false) {
     const deptHtml = showDept && member.dept ? `<p class="member-dept">${member.dept}</p>` : '';
@@ -251,7 +363,7 @@ function renderTeamSection(tenure, category, containerId) {
     
     if (members.length === 0) {
         container.innerHTML = `
-            <div class="no-data-message" style="text-align: center; padding: 3rem; color: #7a8b88;">
+            <div class="no-data-message" style="text-align: center; padding: 3rem; color: #7a8b88; grid-column: 1 / -1;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem; opacity: 0.5;">
                     <circle cx="12" cy="12" r="10"></circle>
                     <path d="M8 15h8M9 9h.01M15 9h.01"></path>
@@ -263,12 +375,16 @@ function renderTeamSection(tenure, category, containerId) {
     }
     
     const showDept = category !== 'council';
-    container.innerHTML = members.map(m => renderMemberCard(m, showDept)).join('');
+    // Use portrait cards for the new design
+    container.innerHTML = members.map(m => renderPortraitCard(m, showDept)).join('');
     
     // Re-initialize AOS for new elements
     if (typeof AOS !== 'undefined') {
         AOS.refresh();
     }
+    
+    // Initialize tilt effect for new cards
+    setTimeout(() => initTiltEffect(), 100);
 }
 
 function renderLegacyTable() {
@@ -345,6 +461,12 @@ document.addEventListener('DOMContentLoaded', () => {
         renderAllSections();
         renderLegacyTable();
     }
+    
+    // Gallery drag functionality
+    initGalleryDrag();
+    
+    // Initialize tilt effect
+    initTiltEffect();
     
     // Legacy Team Grid (Old Implementation - Keep for backward compatibility)
     if (document.getElementById('teamContainer')) {

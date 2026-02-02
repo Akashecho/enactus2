@@ -23,6 +23,12 @@ class Event(db.Model):
     full_desc = db.Column(db.Text, nullable=False)
     image_url = db.Column(db.String(500), nullable=False)
     is_open = db.Column(db.Boolean, default=True)
+    # New fields for event duration
+    start_date = db.Column(db.String(20), nullable=True)  # Format: YYYY-MM-DD
+    end_date = db.Column(db.String(20), nullable=True)    # Format: YYYY-MM-DD
+    event_time = db.Column(db.String(20), nullable=True)  # Format: HH:MM
+    venue = db.Column(db.String(200), nullable=True)
+    max_registrations = db.Column(db.Integer, nullable=True)
 
 class Registration(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -121,6 +127,10 @@ def add_event():
     short_desc = request.form.get('short_desc')
     full_desc = request.form.get('full_desc')
     image_url = request.form.get('image_url')
+    # New optional fields
+    event_time = request.form.get('time')
+    venue = request.form.get('venue')
+    max_reg = request.form.get('max_registrations')
 
     # Convert Date (2024-11-25) -> Day (25) Month (NOV)
     try:
@@ -135,7 +145,11 @@ def add_event():
             short_desc=short_desc,
             full_desc=full_desc,
             image_url=image_url,
-            is_open=True
+            is_open=True,
+            start_date=date_str,
+            event_time=event_time if event_time else None,
+            venue=venue if venue else None,
+            max_registrations=int(max_reg) if max_reg else None
         )
         db.session.add(new_event)
         db.session.commit()
@@ -144,6 +158,50 @@ def add_event():
         print(e)
         flash("Error creating event. Check date format.", "error")
 
+    return redirect(url_for('admin'))
+
+@app.route('/toggle_event/<int:event_id>', methods=['POST'])
+def toggle_event(event_id):
+    if not session.get('is_admin'):
+        return redirect(url_for('admin_login'))
+    
+    event = Event.query.get_or_404(event_id)
+    event.is_open = not event.is_open
+    db.session.commit()
+    
+    status = "opened" if event.is_open else "closed"
+    flash(f"Registration for '{event.title}' has been {status}.", "success")
+    return redirect(url_for('admin'))
+
+@app.route('/delete_event/<int:event_id>', methods=['POST'])
+def delete_event(event_id):
+    if not session.get('is_admin'):
+        return redirect(url_for('admin_login'))
+    
+    event = Event.query.get_or_404(event_id)
+    event_title = event.title
+    
+    # Delete all registrations for this event first
+    Registration.query.filter_by(event_id=event_id).delete()
+    
+    db.session.delete(event)
+    db.session.commit()
+    
+    flash(f"Event '{event_title}' and all its registrations have been deleted.", "success")
+    return redirect(url_for('admin'))
+
+@app.route('/delete_registration/<int:reg_id>', methods=['POST'])
+def delete_registration(reg_id):
+    if not session.get('is_admin'):
+        return redirect(url_for('admin_login'))
+    
+    registration = Registration.query.get_or_404(reg_id)
+    reg_name = registration.name
+    
+    db.session.delete(registration)
+    db.session.commit()
+    
+    flash(f"Registration for '{reg_name}' has been deleted.", "success")
     return redirect(url_for('admin'))
 
 @app.route('/logout')
