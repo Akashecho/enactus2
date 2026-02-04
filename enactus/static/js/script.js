@@ -219,68 +219,6 @@ const teamData = {
             { name: "Riya Patel", role: "Project Swachh", dept: "Environment", img: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=500", linkedin: "#" },
             { name: "Saurabh Singh", role: "Project Aahar", dept: "Food Security", img: "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=500", linkedin: "#" }
         ]
-    },
-    "9.0": {
-        council: [
-            { name: "Manish Gupta", role: "President", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500", linkedin: "#" },
-            { name: "Kavita Sharma", role: "Vice President", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500", linkedin: "#" },
-            { name: "Rajesh Kumar", role: "Secretary", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500", linkedin: "#" },
-            { name: "Simran Kaur", role: "Treasurer", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500", linkedin: "#" }
-        ],
-        department: [
-            { name: "Aarav Mehta", role: "Tech Head", dept: "Technology", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500", linkedin: "#" },
-            { name: "Ishita Roy", role: "Design Head", dept: "Design", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500", linkedin: "#" },
-            { name: "Nikhil Jain", role: "Marketing Head", dept: "Marketing", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500", linkedin: "#" },
-            { name: "Prachi Verma", role: "Research Head", dept: "Research", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500", linkedin: "#" }
-        ],
-        project: [
-            { name: "Varun Nair", role: "Project Utkarsh", dept: "Education", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500", linkedin: "#" },
-            { name: "Megha Singh", role: "Project Saksham", dept: "Women Empowerment", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500", linkedin: "#" },
-            { name: "Kunal Patel", role: "Project Swachh", dept: "Environment", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500", linkedin: "#" }
-        ]
-    },
-    "8.0": {
-        council: [
-            { name: "Deepak Singh", role: "President", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500", linkedin: "#" },
-            { name: "Nidhi Gupta", role: "Vice President", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500", linkedin: "#" },
-            { name: "Akash Kumar", role: "Secretary", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500", linkedin: "#" }
-        ],
-        department: [
-            { name: "Tanvi Sharma", role: "Tech Head", dept: "Technology", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500", linkedin: "#" },
-            { name: "Rohan Mehta", role: "Design Head", dept: "Design", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500", linkedin: "#" },
-            { name: "Anjali Verma", role: "Marketing Head", dept: "Marketing", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500", linkedin: "#" }
-        ],
-        project: [
-            { name: "Sahil Joshi", role: "Project Utkarsh", dept: "Education", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500", linkedin: "#" },
-            { name: "Kritika Singh", role: "Project Saksham", dept: "Women Empowerment", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500", linkedin: "#" }
-        ]
-    },
-    "7.0": {
-        council: [
-            { name: "Vivek Sharma", role: "President", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500", linkedin: "#" },
-            { name: "Ritika Patel", role: "Vice President", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500", linkedin: "#" },
-            { name: "Mohit Kumar", role: "Secretary", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500", linkedin: "#" }
-        ],
-        department: [
-            { name: "Shivani Gupta", role: "Tech Head", dept: "Technology", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500", linkedin: "#" },
-            { name: "Harsh Verma", role: "Marketing Head", dept: "Marketing", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500", linkedin: "#" }
-        ],
-        project: [
-            { name: "Neeraj Singh", role: "Project Utkarsh", dept: "Education", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500", linkedin: "#" }
-        ]
-    },
-    "6.0": {
-        council: [
-            { name: "Sanjay Mehta", role: "President", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500", linkedin: "#" },
-            { name: "Swati Sharma", role: "Vice President", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500", linkedin: "#" }
-        ],
-        department: [
-            { name: "Ankit Kumar", role: "Tech Head", dept: "Technology", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500", linkedin: "#" },
-            { name: "Pallavi Jain", role: "Marketing Head", dept: "Marketing", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500", linkedin: "#" }
-        ],
-        project: [
-            { name: "Gaurav Singh", role: "Project Utkarsh", dept: "Education", img: "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=500", linkedin: "#" }
-        ]
     }
 };
 

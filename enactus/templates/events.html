@@ -112,6 +112,23 @@
                             <span>{{ event.venue }}</span>
                         </div>
                         {% endif %}
+                        {% if event.start_date %}
+                        <div class="meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span>
+                                {% if event.start_date == event.end_date or not event.end_date %}
+                                    {{ event.start_date }}
+                                {% else %}
+                                    {{ event.start_date }} to {{ event.end_date }}
+                                {% endif %}
+                            </span>
+                        </div>
+                        {% endif %}
                     </div>
                     
                     <button class="btn-expand-event" onclick="openEventModal({{ event.id }})">
@@ -271,6 +288,26 @@
                             <span class="meta-value">{{ event.registrations|length }} participants</span>
                         </div>
                     </div>
+                    {% if event.start_date %}
+                    <div class="modal-meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <div>
+                            <span class="meta-label">Date{% if event.start_date != event.end_date and event.end_date %}s{% endif %}</span>
+                            <span class="meta-value">
+                                {% if event.start_date == event.end_date or not event.end_date %}
+                                    {{ event.start_date }}
+                                {% else %}
+                                    {{ event.start_date }} to {{ event.end_date }}
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             
@@ -422,7 +459,7 @@
 /* Events Grid */
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 2.5rem;
 }
 
@@ -443,7 +480,7 @@
 /* Event Image */
 .event-image-wrapper {
     position: relative;
-    height: 220px;
+    height: 280px;
     overflow: hidden;
 }
 
