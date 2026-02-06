@@ -84,6 +84,67 @@ function initSmoothScroll() {
 }
 
 // =============================================
+// PREMIUM SCROLL-HIDE NAVIGATION
+// =============================================
+
+function initScrollHideNav() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const hideThreshold = 80; // Only hide after scrolling past this point
+
+    function updateNavState() {
+        const currentScrollY = window.scrollY;
+        const scrollDiff = currentScrollY - lastScrollY;
+
+        // Always show nav at top of page
+        if (currentScrollY <= 20) {
+            nav.classList.remove('nav-hidden');
+            nav.classList.remove('nav-scrolled');
+            lastScrollY = currentScrollY;
+            ticking = false;
+            return;
+        }
+
+        // Add scrolled class for enhanced shadow
+        nav.classList.add('nav-scrolled');
+
+        // Scrolling DOWN and past threshold - hide nav
+        if (scrollDiff > 5 && currentScrollY > hideThreshold) {
+            nav.classList.add('nav-hidden');
+        }
+        // Scrolling UP - show nav
+        else if (scrollDiff < -5) {
+            nav.classList.remove('nav-hidden');
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateNavState);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Show nav when hovering near top
+    document.addEventListener('mousemove', (e) => {
+        if (e.clientY < 80 && nav.classList.contains('nav-hidden')) {
+            nav.classList.remove('nav-hidden');
+        }
+    });
+
+    // Debug log to confirm init
+    console.log('Scroll-hide nav initialized');
+}
+
+// =============================================
 // CHARACTER ANIMATION FOR HERO TEXT
 // =============================================
 
@@ -387,6 +448,9 @@ function renderAllSections() {
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Premium Navigation - Scroll Hide
+    initScrollHideNav();
+
     // Projects Page Initialization
     initCountingAnimation();
     initPastProjectsScroll();

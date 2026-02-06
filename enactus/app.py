@@ -8,6 +8,12 @@ from reportlab.lib.pagesizes import A4, landscape
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
+try:
+    from openpyxl import Workbook
+    from openpyxl.styles import Font, Alignment, PatternFill
+    OPENPYXL_AVAILABLE = True
+except ImportError:
+    OPENPYXL_AVAILABLE = False
 
 app = Flask(__name__)
 app.secret_key = 'super_secret_key_for_flash_messages'
@@ -503,7 +509,119 @@ def export_event_pdf(event_id):
     response.headers['Content-Disposition'] = f'attachment; filename={event.title.replace(" ", "_")}_registrations.pdf'
     return response
 
-# --- SEED DATA ---
+# --- EXCEL EXPORT ROUTES ---
+@app.route('/export_all_excel')
+def export_all_excel():
+    if not session.get('is_admin'):
+        return redirect(url_for('admin_login'))
+    
+    if not OPENPYXL_AVAILABLE:
+        flash('Excel export requires openpyxl. Install with: pip install openpyxl', 'error')
+        return redirect(url_for('admin'))
+    
+    wb = Workbook()
+    events = Event.query.all()
+    
+    # Remove default sheet
+    wb.remove(wb.active)
+    
+    header_font = Font(bold=True, color="FFFFFF")
+    header_fill = PatternFill(start_color="1a3c34", end_color="1a3c34", fill_type="solid")
+    
+    for event in events:
+        regs = Registration.query.filter_by(event_id=event.id).all()
+        if not regs:
+            continue
+        
+        # Create sheet for each event (limit title to 30 chars)
+        ws = wb.create_sheet(title=event.title[:30])
+        
+        if event.event_type == 'team':
+            headers = ['#', 'Team Name', 'Leader Name', 'Leader Email', 'Leader Contact', 'Team Size', 'College']
+            ws.append(headers)
+            for i, reg in enumerate(regs, 1):
+                ws.append([i, reg.team_name or '', reg.leader_name or '', reg.leader_email or '', reg.leader_contact or '', reg.team_size or '', reg.college_name or ''])
+        else:
+            headers = ['#', 'Name', 'Email', 'Student ID', 'Contact', 'Branch', 'College']
+            ws.append(headers)
+            for i, reg in enumerate(regs, 1):
+                ws.append([i, reg.name or '', reg.email or '', reg.student_id or '', reg.contact_no or '', reg.branch or '', reg.college_name or ''])
+        
+        # Style headers
+        for cell in ws[1]:
+            cell.font = header_font
+            cell.fill = header_fill
+            cell.alignment = Alignment(horizontal='center')
+        
+        # Auto-adjust column widths
+        for column_cells in ws.columns:
+            max_length = max(len(str(cell.value or "")) for cell in column_cells)
+            ws.column_dimensions[column_cells[0].column_letter].width = min(max_length + 2, 50)
+    
+    if not wb.worksheets:
+        ws = wb.create_sheet(title="No Data")
+        ws.append(["No registrations found"])
+    
+    buffer = BytesIO()
+    wb.save(buffer)
+    buffer.seek(0)
+    
+    response = make_response(buffer.getvalue())
+    response.headers['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    response.headers['Content-Disposition'] = 'attachment; filename=all_registrations.xlsx'
+    return response
+
+
+@app.route('/export_event_excel/<int:event_id>')
+def export_event_excel(event_id):
+    if not session.get('is_admin'):
+        return redirect(url_for('admin_login'))
+    
+    if not OPENPYXL_AVAILABLE:
+        flash('Excel export requires openpyxl. Install with: pip install openpyxl', 'error')
+        return redirect(url_for('admin'))
+    
+    event = Event.query.get_or_404(event_id)
+    regs = Registration.query.filter_by(event_id=event_id).all()
+    
+    wb = Workbook()
+    ws = wb.active
+    ws.title = event.title[:30]
+    
+    header_font = Font(bold=True, color="FFFFFF")
+    header_fill = PatternFill(start_color="1a3c34", end_color="1a3c34", fill_type="solid")
+    
+    if event.event_type == 'team':
+        headers = ['#', 'Team Name', 'Leader Name', 'Leader Email', 'Leader Contact', 'Team Size', 'College']
+        ws.append(headers)
+        for i, reg in enumerate(regs, 1):
+            ws.append([i, reg.team_name or '', reg.leader_name or '', reg.leader_email or '', reg.leader_contact or '', reg.team_size or '', reg.college_name or ''])
+    else:
+        headers = ['#', 'Name', 'Email', 'Student ID', 'Contact', 'Branch', 'College']
+        ws.append(headers)
+        for i, reg in enumerate(regs, 1):
+            ws.append([i, reg.name or '', reg.email or '', reg.student_id or '', reg.contact_no or '', reg.branch or '', reg.college_name or ''])
+    
+    # Style headers
+    for cell in ws[1]:
+        cell.font = header_font
+        cell.fill = header_fill
+        cell.alignment = Alignment(horizontal='center')
+    
+    # Auto-adjust column widths
+    for column_cells in ws.columns:
+        max_length = max(len(str(cell.value or "")) for cell in column_cells)
+        ws.column_dimensions[column_cells[0].column_letter].width = min(max_length + 2, 50)
+    
+    buffer = BytesIO()
+    wb.save(buffer)
+    buffer.seek(0)
+    
+    response = make_response(buffer.getvalue())
+    response.headers['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    response.headers['Content-Disposition'] = f'attachment; filename={event.title.replace(" ", "_")}_registrations.xlsx'
+    return response
+
 def seed_database():
     with app.app_context():
         db.create_all()

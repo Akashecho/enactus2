@@ -263,70 +263,116 @@
                         </filter>
                     </defs>
 
-                    <!-- Connection Lines (Curved Paths) -->
-                    <g class="connections" fill="none" stroke="#d4a553" stroke-width="1" opacity="0.4">
-                        <!-- USA (193,117) to Europe (411,84) -->
-                        <path class="connection-line" d="M 193 117 Q 300 60 411 84" />
-                        <!-- USA (193,117) to Africa (462,257) -->
-                        <path class="connection-line" d="M 193 117 Q 320 200 462 257" style="animation-delay: 1s;" />
-                        <!-- Europe (411,84) to India (571,137) -->
-                        <path class="connection-line" d="M 411 84 Q 490 110 571 137" style="animation-delay: 0.5s;" />
-                        <!-- India (571,137) to Australia (735,275) -->
-                        <path class="connection-line" d="M 571 137 Q 650 200 735 275" style="animation-delay: 1.5s;" />
-                        <!-- China (657,111) to Australia (735,275) -->
-                        <path class="connection-line" d="M 657 111 Q 700 200 735 275" style="animation-delay: 2s;" />
+                    <!-- Connection Lines - Recalculated coordinates -->
+                    <g class="connections" fill="none" stroke="#d4a553" stroke-width="1.5" opacity="0.5">
+                        <!-- USA to UK -->
+                        <path class="connection-line" d="M 193 117 Q 290 70 400 86" />
+                        <!-- USA to Brazil -->
+                        <path class="connection-line" d="M 193 117 Q 240 180 296 252" style="animation-delay: 0.5s;" />
+                        <!-- UK to South Africa -->
+                        <path class="connection-line" d="M 400 86 Q 430 180 462 258" style="animation-delay: 1s;" />
+                        <!-- UK to India -->
+                        <path class="connection-line" d="M 400 86 Q 480 100 572 136" style="animation-delay: 0.8s;" />
+                        <!-- India to China -->
+                        <path class="connection-line" d="M 572 136 Q 610 115 658 111" style="animation-delay: 1.2s;" />
+                        <!-- China to Japan -->
+                        <path class="connection-line" d="M 658 111 Q 695 105 711 121" style="animation-delay: 1.5s;" />
+                        <!-- China to Australia -->
+                        <path class="connection-line" d="M 658 111 Q 700 200 736 275" style="animation-delay: 1.8s;" />
+                        <!-- Mexico to USA -->
+                        <path class="connection-line" d="M 179 157 Q 185 140 193 117" style="animation-delay: 2s;" />
                     </g>
 
-                    <!-- Map Markers -->
+                    <!-- Map Markers - Properly Calculated (800x400 equirectangular projection) -->
+                    <!-- Formula: X = (lon + 180) * (800/360), Y = (90 - lat) * (400/180) -->
                     <g class="markers">
-                        <!-- USA (Springfield - Global HQ) -->
-                        <g class="marker" transform="translate(193, 117)"
-                            data-name="Global Headquarters - Springfield, USA">
-                            <circle r="8" fill="#d4a553" opacity="0.3" class="pulse-ring" />
-                            <circle r="4" fill="#d4a553" filter="url(#markerGlow)" class="marker-dot" />
-                            <circle r="2" fill="#fff" />
+                        <!-- USA - Springfield, Missouri: 37.2°N, 93.3°W → X=193, Y=117 -->
+                        <g class="marker" transform="translate(193, 117)" data-name="Global HQ - Springfield, USA">
+                            <circle r="10" fill="#d4a553" opacity="0.3" class="pulse-ring" />
+                            <circle r="5" fill="#d4a553" filter="url(#markerGlow)" class="marker-dot" />
+                            <circle r="2.5" fill="#fff" />
                         </g>
 
-                        <!-- Netherlands (Europe) -->
-                        <g class="marker" transform="translate(411, 84)" data-name="Enactus Netherlands">
+                        <!-- UK - London: 51.5°N, 0°W → X=400, Y=86 -->
+                        <g class="marker" transform="translate(400, 86)" data-name="Enactus UK - London">
                             <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
                             <circle r="3" fill="#c4704f" />
                             <circle r="1.5" fill="#fff" />
                         </g>
 
-                        <!-- South Africa -->
-                        <g class="marker" transform="translate(462, 257)" data-name="Enactus South Africa">
+                        <!-- Netherlands - Amsterdam: 52.4°N, 4.9°E → X=411, Y=83 -->
+                        <g class="marker" transform="translate(411, 83)" data-name="Enactus Netherlands">
+                            <circle r="5" fill="#c4704f" opacity="0.3" class="pulse-ring" />
+                            <circle r="2.5" fill="#c4704f" />
+                            <circle r="1.2" fill="#fff" />
+                        </g>
+
+                        <!-- Egypt - Cairo: 30°N, 31.2°E → X=469, Y=133 -->
+                        <g class="marker" transform="translate(469, 133)" data-name="Enactus Egypt - Cairo">
                             <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
                             <circle r="3" fill="#c4704f" />
                             <circle r="1.5" fill="#fff" />
                         </g>
 
-                        <!-- India (Delhi) -->
-                        <g class="marker" transform="translate(571, 137)" data-name="Enactus India">
+                        <!-- South Africa - Johannesburg: 26.2°S, 28°E → X=462, Y=258 -->
+                        <g class="marker" transform="translate(462, 258)" data-name="Enactus South Africa">
                             <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
                             <circle r="3" fill="#c4704f" />
                             <circle r="1.5" fill="#fff" />
                         </g>
 
-                        <!-- China (Beijing) -->
-                        <g class="marker" transform="translate(657, 111)" data-name="Enactus China">
+                        <!-- India - New Delhi: 28.6°N, 77.2°E → X=572, Y=136 -->
+                        <g class="marker" transform="translate(572, 136)" data-name="Enactus India - New Delhi">
                             <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
                             <circle r="3" fill="#c4704f" />
                             <circle r="1.5" fill="#fff" />
                         </g>
 
-                        <!-- Australia (Sydney) -->
-                        <g class="marker" transform="translate(735, 275)" data-name="Enactus Australia">
+                        <!-- China - Beijing: 39.9°N, 116.4°E → X=658, Y=111 -->
+                        <g class="marker" transform="translate(658, 111)" data-name="Enactus China - Beijing">
                             <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
                             <circle r="3" fill="#c4704f" />
                             <circle r="1.5" fill="#fff" />
                         </g>
 
-                        <!-- Brazil (Sao Paulo) -->
-                        <g class="marker" transform="translate(297, 250)" data-name="Enactus Brazil">
+                        <!-- Japan - Tokyo: 35.7°N, 139.7°E → X=711, Y=121 -->
+                        <g class="marker" transform="translate(711, 121)" data-name="Enactus Japan - Tokyo">
                             <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
                             <circle r="3" fill="#c4704f" />
                             <circle r="1.5" fill="#fff" />
+                        </g>
+
+                        <!-- Australia - Sydney: 33.9°S, 151.2°E → X=736, Y=275 -->
+                        <g class="marker" transform="translate(736, 275)" data-name="Enactus Australia - Sydney">
+                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
+                            <circle r="3" fill="#c4704f" />
+                            <circle r="1.5" fill="#fff" />
+                        </g>
+
+                        <!-- Brazil - São Paulo: 23.5°S, 46.6°W → X=296, Y=252 -->
+                        <g class="marker" transform="translate(296, 252)" data-name="Enactus Brazil - São Paulo">
+                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
+                            <circle r="3" fill="#c4704f" />
+                            <circle r="1.5" fill="#fff" />
+                        </g>
+
+                        <!-- Mexico - Mexico City: 19.4°N, 99.1°W → X=179, Y=157 -->
+                        <g class="marker" transform="translate(179, 157)" data-name="Enactus Mexico">
+                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
+                            <circle r="3" fill="#c4704f" />
+                            <circle r="1.5" fill="#fff" />
+                        </g>
+
+                        <!-- ADGIPS Delhi (Our Chapter): 28.7°N, 77.1°E → X=571, Y=136 -->
+                        <g class="marker adgips-marker" transform="translate(571, 136)"
+                            data-name="★ Enactus ADGIPS - New Delhi">
+                            <circle r="16" fill="#EAB308" opacity="0.15" class="pulse-ring" />
+                            <circle r="12" fill="#EAB308" opacity="0.25" class="pulse-ring"
+                                style="animation-delay: 0.3s;" />
+                            <circle r="8" fill="#EAB308" opacity="0.4" class="pulse-ring"
+                                style="animation-delay: 0.6s;" />
+                            <circle r="6" fill="#EAB308" filter="url(#markerGlow)" class="marker-dot" />
+                            <circle r="3" fill="#fff" />
                         </g>
                     </g>
                 </svg>
@@ -340,6 +386,10 @@
                     <div class="legend-item">
                         <span class="legend-dot regional"></span>
                         <span>Regional Offices</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #EAB308;"></span>
+                        <span>ADGIPS Chapter</span>
                     </div>
                     <div class="legend-item">
                         <span class="legend-line"></span>
@@ -374,7 +424,7 @@
 
         const ctx = canvas.getContext('2d');
         const wrapper = document.getElementById('dottedMapWrapper');
-        
+
         // Load the mask image
         const mapMask = new Image();
         mapMask.src = '/static/images/world_map_mask.png';
@@ -382,7 +432,7 @@
         let maskWidth = 0;
         let maskHeight = 0;
 
-        mapMask.onload = function() {
+        mapMask.onload = function () {
             // Create an offscreen canvas to read pixel data
             const offCanvas = document.createElement('canvas');
             maskWidth = mapMask.width;
@@ -391,33 +441,33 @@
             offCanvas.height = maskHeight;
             const offCtx = offCanvas.getContext('2d');
             offCtx.drawImage(mapMask, 0, 0);
-            
+
             // Get pixel data
             const imageData = offCtx.getImageData(0, 0, maskWidth, maskHeight);
             maskData = imageData.data;
-            
+
             // Draw the map initially
             drawDottedMap();
         };
 
         function isLand(x, y, width, height) {
             if (!maskData) return false;
-            
+
             // Map canvas coordinates to mask image coordinates
             // Assuming Equirectangular projection match
             const maskX = Math.floor((x / width) * maskWidth);
             const maskY = Math.floor((y / height) * maskHeight);
-            
+
             if (maskX < 0 || maskX >= maskWidth || maskY < 0 || maskY >= maskHeight) return false;
-            
+
             // Index in pixel array (R, G, B, A)
             const index = (maskY * maskWidth + maskX) * 4;
-            
+
             // Check alpha/opacity or darkness
             // Our mask is black continents on white/transparent
             // If transparent (alpha < 50) -> Ocean (if image is transparent bg)
             // If Black (R<50) -> Land
-            
+
             const r = maskData[index];
             const g = maskData[index + 1];
             const b = maskData[index + 2];
@@ -434,7 +484,7 @@
             const width = rect.width;
             // Force 2:1 aspect ratio for accurate Equirectangular projection
             const height = width / 2; // Math.max(300, rect.height);
-            
+
             // Update wrapper height to fit the map if needed, or just center it
             // wrapper.style.height = height + 'px'; 
 
@@ -458,7 +508,7 @@
 
                     if (land || true) { // Draw ocean dots too? Or just land?
                         // Let's draw ocean dots very faintly for context, land dots brightly
-                         ctx.beginPath();
+                        ctx.beginPath();
                         if (land) {
                             ctx.arc(x, y, dotSize, 0, Math.PI * 2);
                             ctx.fillStyle = landColor;
@@ -480,7 +530,7 @@
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(drawDottedMap, 150);
         });
-        
+
         // --- 2. Interactive Tooltips ---
         const tooltip = document.getElementById('map-tooltip');
         const markers = document.querySelectorAll('.marker');
@@ -499,7 +549,7 @@
                     const wrapperRect = wrapper.getBoundingClientRect();
                     const x = e.clientX - wrapperRect.left;
                     const y = e.clientY - wrapperRect.top;
-                    
+
                     tooltip.style.left = x + 'px';
                     tooltip.style.top = y + 'px';
                 });

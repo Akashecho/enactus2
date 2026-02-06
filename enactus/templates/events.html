@@ -172,6 +172,17 @@
                         {% endif %}
                     </div>
 
+                    {% if event.event_link %}
+                    <a href="{{ event.event_link }}" target="_blank" class="btn-external-form" onclick="event.stopPropagation();">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        Registration Form
+                    </a>
+                    {% endif %}
+
                     <button class="btn-expand-event" onclick="openEventModal({{ event.id }})">
                         Register Now
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -356,6 +367,18 @@
                                 {{ event.start_date }} to {{ event.end_date }}
                                 {% endif %}
                             </span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if event.event_link %}
+                    <div class="modal-meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                        <div>
+                            <span class="meta-label">Form Link</span>
+                            <a href="{{ event.event_link }}" target="_blank" class="meta-value" style="color: #c4704f; text-decoration: underline;">Open Registration Form</a>
                         </div>
                     </div>
                     {% endif %}

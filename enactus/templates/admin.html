@@ -1077,6 +1077,16 @@
                     </svg>
                     Export All PDF
                 </a>
+                <a href="/export_all_excel" class="btn btn-primary" style="background: #217346;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    Export All Excel
+                </a>
                 <a href="/logout" class="btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2">
@@ -1359,6 +1369,17 @@
                                                 <line x1="12" y1="15" x2="12" y2="3"></line>
                                             </svg>
                                         </a>
+                                        <a href="/export_event_excel/{{ event.id }}" class="action-btn"
+                                            title="Export Excel" style="color: #217346;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                                                </path>
+                                                <polyline points="14 2 14 8 20 8"></polyline>
+                                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                            </svg>
+                                        </a>
                                         <a href="/edit_event/{{ event.id }}" class="action-btn edit" title="Edit Event">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2">
@@ -1459,26 +1480,73 @@
                             <tr>
                                 <th>Participant</th>
                                 <th>Email</th>
-                                <th>Student ID</th>
+                                <th>Phone</th>
+                                <th>Student ID / Team Size</th>
+                                <th>Branch</th>
+                                <th>College</th>
                                 <th>Event</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody id="registrations-table-body">
                             {% for reg in regs %}
-                            <tr class="reg-row" data-event="{{ reg.event_id }}" data-name="{{ reg.name|lower }}"
-                                data-email="{{ reg.email|lower }}">
+                            <tr class="reg-row" data-event="{{ reg.event_id }}"
+                                data-name="{{ (reg.team_name or reg.name or '')|lower }}"
+                                data-email="{{ (reg.leader_email or reg.email or '')|lower }}">
+                                <!-- Name / Team Name -->
                                 <td>
                                     <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                        <div class="reg-avatar">{{ reg.name[0] }}</div>
-                                        <span style="font-weight: 600;">{{ reg.name }}</span>
+                                        <div class="reg-avatar">{{ (reg.team_name or reg.name or 'U')[0] }}</div>
+                                        <div>
+                                            {% if reg.registration_type == 'team' %}
+                                            <span style="font-weight: 600; color: #d4a553;">{{ reg.team_name or 'Team'
+                                                }}</span>
+                                            <div style="font-size: 0.75rem; color: var(--text-secondary);">Leader: {{
+                                                reg.leader_name or reg.name or 'N/A' }}</div>
+                                            {% else %}
+                                            <span style="font-weight: 600;">{{ reg.name or 'N/A' }}</span>
+                                            <span
+                                                style="display: block; font-size: 0.7rem; color: var(--accent-blue);">Solo</span>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </td>
-                                <td>{{ reg.email }}</td>
-                                <td>{{ reg.student_id }}</td>
+                                <!-- Email -->
+                                <td style="font-size: 0.85rem;">{{ reg.leader_email or reg.email or 'N/A' }}</td>
+                                <!-- Phone -->
+                                <td style="font-size: 0.85rem;">{{ reg.leader_contact or reg.contact_no or 'N/A' }}</td>
+                                <!-- Student ID / Team Size -->
+                                <td>
+                                    {% if reg.registration_type == 'team' %}
+                                    <span style="font-weight: 500; color: #22c55e;">{{ reg.team_size or '?' }}
+                                        members</span>
+                                    {% else %}
+                                    <span style="font-weight: 500;">{{ reg.student_id or 'N/A' }}</span>
+                                    {% endif %}
+                                </td>
+                                <!-- Branch -->
+                                <td style="font-size: 0.85rem;">
+                                    {% if reg.registration_type == 'team' %}
+                                    <span style="color: var(--text-secondary);">—</span>
+                                    {% else %}
+                                    {{ reg.branch or 'N/A' }}
+                                    {% endif %}
+                                </td>
+                                <!-- College -->
+                                <td style="font-size: 0.85rem; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
+                                    title="{{ reg.college_name or 'N/A' }}">
+                                    {{ reg.college_name or 'N/A' }}
+                                </td>
+                                <!-- Event -->
                                 <td>
                                     <span class="reg-event-badge">{{ reg.event.title }}</span>
+                                    {% if reg.registration_type == 'team' %}
+                                    <span
+                                        style="display: block; font-size: 0.65rem; color: #d4a553; margin-top: 0.15rem;">Team
+                                        Event</span>
+                                    {% endif %}
                                 </td>
+                                <!-- Actions -->
                                 <td>
                                     <div class="action-btns">
                                         <form action="/delete_registration/{{ reg.id }}" method="POST"
@@ -1499,7 +1567,7 @@
                             </tr>
                             {% else %}
                             <tr>
-                                <td colspan="5">
+                                <td colspan="8">
                                     <div class="empty-state">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2">
