@@ -1,0 +1,56 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+.venv
+
+# Flask
+instance/
+.webassets-cache
+
+# Database
+*.sqlite3
+*.db
+# Keep seed data if intended, but usually db files are ignored. 
+# User has 'enactus.db' and 'emactus.db'. 
+# Assuming we want to keep them if they contain important data for now, 
+# but generally bad practice to commit binary DBs. 
+# For now, I will NOT ignore them based on user request to "push this", 
+# implying they want the current state. 
+# However, standard practice is to ignore. 
+# I will ignore them to be safe and avoid large file issues, 
+# unless user specifically asked for DBs. 
+# Re-reading: "Push this... make it best". 
+# I'll include them if they are small, but likely better to ignore.
+# Let's ignore them to prompt a clean state, or uncomment if needed.
+# *.db 
+
+# OS
+.DS_Store
+Thumbs.db
+nul
+

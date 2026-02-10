@@ -283,6 +283,14 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Brochure Link</label>
+                        <input type="url" name="brochure_link" class="form-input"
+                            value="{{ event.brochure_link or '' }}"
+                            placeholder="https://drive.google.com/... or PDF link">
+                        <small>Link to event brochure or document</small>
+                    </div>
+
+                    <div class="form-group">
                         <label>Event Type</label>
                         <select name="event_type" class="form-input" id="editEventType"
                             onchange="toggleEditTeamFields()">

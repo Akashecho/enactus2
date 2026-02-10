@@ -2,6 +2,7 @@ import os
 import datetime
 from io import BytesIO
 from flask import Flask, render_template, request, redirect, url_for, flash, session, make_response
+from sqlalchemy import text
 from flask_sqlalchemy import SQLAlchemy
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, landscape
@@ -47,6 +48,7 @@ class Event(db.Model):
     min_team_size = db.Column(db.Integer, nullable=True)  # Minimum team members
     max_team_size = db.Column(db.Integer, nullable=True)  # Maximum team members
     event_link = db.Column(db.String(500), nullable=True)  # External link/URL for event
+    brochure_link = db.Column(db.String(500), nullable=True)  # Optional document link
 
 class Registration(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -241,6 +243,7 @@ def add_event():
     venue = request.form.get('venue')
     max_reg = request.form.get('max_registrations')
     event_link = request.form.get('event_link')
+    brochure_link = request.form.get('brochure_link')
 
     try:
         start_date_obj = datetime.datetime.strptime(start_date, '%Y-%m-%d')
@@ -263,7 +266,8 @@ def add_event():
             max_registrations=int(max_reg) if max_reg else None,
             min_team_size=int(min_team_size) if min_team_size and event_type == 'team' else None,
             max_team_size=int(max_team_size) if max_team_size and event_type == 'team' else None,
-            event_link=event_link if event_link else None
+            event_link=event_link if event_link else None,
+            brochure_link=brochure_link if brochure_link else None
         )
         db.session.add(new_event)
         db.session.commit()
@@ -318,6 +322,10 @@ def edit_event(event_id):
         # Handle event link
         event_link = request.form.get('event_link')
         event.event_link = event_link if event_link else None
+        
+        # Handle brochure link
+        brochure_link = request.form.get('brochure_link')
+        event.brochure_link = brochure_link if brochure_link else None
         
         db.session.commit()
         flash(f"Event '{event.title}' updated successfully!", "success")
@@ -624,6 +632,20 @@ def export_event_excel(event_id):
 def seed_database():
     with app.app_context():
         db.create_all()
+        
+        # Check and migrate brochure_link if missing
+        try:
+            with db.engine.connect() as connection:
+                connection.execute(text("SELECT brochure_link FROM event LIMIT 1"))
+        except Exception:
+            print("Migrating: Adding brochure_link column to event table...")
+            try:
+                with db.engine.connect() as connection:
+                    connection.execute(text("ALTER TABLE event ADD COLUMN brochure_link VARCHAR(500)"))
+                    connection.commit()
+            except Exception as e:
+                print(f"Migration error: {e}")
+
         if Event.query.count() == 0:
             e1 = Event(
                 title="Social Entrepreneurship Summit",

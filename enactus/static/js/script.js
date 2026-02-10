@@ -450,6 +450,7 @@ function renderAllSections() {
 document.addEventListener('DOMContentLoaded', () => {
     // Premium Navigation - Scroll Hide
     initScrollHideNav();
+    initHamburgerMenu();
 
     // Projects Page Initialization
     initCountingAnimation();
@@ -551,3 +552,39 @@ setTimeout(() => {
         setTimeout(() => flash.remove(), 1000);
     }
 }, 4000);
+
+// =============================================
+// HAMBURGER MENU LOGIC
+// =============================================
+
+function initHamburgerMenu() {
+    const burger = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+    if (!burger || !nav) return;
+
+    burger.addEventListener('click', () => {
+        // Toggle Nav
+        nav.classList.toggle('nav-active');
+        burger.classList.toggle('toggle');
+
+        // Animate Links
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            }
+        });
+    });
+
+    // Close on link click
+    nav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            nav.classList.remove('nav-active');
+            burger.classList.remove('toggle');
+            navLinks.forEach(link => link.style.animation = '');
+        }
+    });
+}
