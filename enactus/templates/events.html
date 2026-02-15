@@ -21,10 +21,8 @@
     <div class="container">
         <div class="events-hero-content">
             <span class="overline">Experiences That Matter</span>
-            <h1 class="split-text">
-                <span class="word">Join</span>
-                <span class="word">The</span>
-                <span class="word highlight">Movement</span>
+            <h1 class="hero-title">
+                Join The <span class="highlight-word">Movement</span>
             </h1>
             <p class="hero-description">
                 Be part of transformative experiences. Register for workshops, summits, and networking events that shape
@@ -53,10 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="scroll-indicator">
-        <span></span>
-        <div class="scroll-line"></div>
-    </div>
+
 </section>
 
 <!-- Upcoming Events Section -->
@@ -374,7 +369,8 @@
                         </div>
                     </div>
                     {% endif %}
-                    {% if event.event_link and not (event.max_registrations and event.registrations|length >= event.max_registrations) %}
+                    {% if event.event_link and not (event.max_registrations and event.registrations|length >=
+                    event.max_registrations) %}
                     <div class="modal-meta-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2">
@@ -580,7 +576,7 @@
         opacity: 0.9;
     }
 
-    .events-hero .split-text {
+    .events-hero .hero-title {
         font-size: clamp(3.5rem, 10vw, 7rem);
         font-weight: 700;
         line-height: 1;
@@ -588,14 +584,8 @@
         color: #fff;
     }
 
-    .events-hero .split-text .word {
-        display: inline-block;
-        margin-right: 0.3em;
-    }
-
-    .events-hero .split-text .word.highlight {
-        color: transparent;
-        -webkit-text-stroke: 2px #d4a553;
+    .events-hero .hero-title .highlight-word {
+        color: #d4a553;
     }
 
     .events-hero .hero-description {
@@ -704,7 +694,7 @@
 
     .event-date-badge-float .day {
         display: block;
-        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Sora', sans-serif;
         font-size: 1.75rem;
         font-weight: 700;
         color: #1a3c34;
@@ -970,7 +960,7 @@
 
     .past-date .day {
         display: block;
-        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Sora', sans-serif;
         font-size: 1.75rem;
         font-weight: 700;
         color: #1a3c34;
@@ -1154,7 +1144,7 @@
 
     .modal-date-badge .day {
         display: block;
-        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Sora', sans-serif;
         font-size: 1.5rem;
         font-weight: 700;
         color: #1a3c34;
@@ -1310,7 +1300,7 @@
             min-height: 60vh;
         }
 
-        .events-hero .split-text {
+        .events-hero .hero-title {
             font-size: clamp(2.5rem, 8vw, 4rem);
         }
 

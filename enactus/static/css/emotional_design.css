@@ -17,14 +17,14 @@
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.4;
+    opacity: 0.35;
     animation: floatOrb 20s infinite ease-in-out;
 }
 
 .orb-1 {
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, var(--brand-yellow-soft) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(circle, var(--brand-gold-soft) 0%, rgba(245, 240, 232, 0) 70%);
     top: -20%;
     left: -20%;
     animation-delay: 0s;
@@ -33,7 +33,7 @@
 .orb-2 {
     width: 50vw;
     height: 50vw;
-    background: radial-gradient(circle, rgba(196, 112, 79, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(circle, rgba(196, 112, 79, 0.18) 0%, rgba(245, 240, 232, 0) 70%);
     bottom: -10%;
     right: -10%;
     animation-delay: -5s;
@@ -42,7 +42,7 @@
 .orb-3 {
     width: 40vw;
     height: 40vw;
-    background: radial-gradient(circle, rgba(26, 60, 52, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(circle, rgba(26, 60, 52, 0.08) 0%, rgba(245, 240, 232, 0) 70%);
     top: 40%;
     left: 30%;
     animation-delay: -10s;

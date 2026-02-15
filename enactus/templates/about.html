@@ -241,160 +241,29 @@
             </div>
         </div>
 
-        <!-- World Map with Dotted Pattern and Animated Connections -->
-        <div class="world-map-container" data-aos="fade-up" data-aos-delay="200">
-            <div class="map-wrapper" id="dottedMapWrapper">
-                <!-- Dotted World Map Canvas -->
-                <canvas id="dottedMapCanvas" class="dotted-map-canvas"></canvas>
-
-                <!-- Map Tooltip -->
-                <div id="map-tooltip" class="map-tooltip"></div>
-
-                <!-- SVG Layer for Connections and Markers -->
-                <!-- SVG Layer for Connections and Markers -->
-                <svg class="map-overlay-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                        <filter id="markerGlow">
-                            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                            <feMerge>
-                                <feMergeNode in="coloredBlur" />
-                                <feMergeNode in="SourceGraphic" />
-                            </feMerge>
-                        </filter>
-                    </defs>
-
-                    <!-- Connection Lines - Recalculated coordinates -->
-                    <g class="connections" fill="none" stroke="#d4a553" stroke-width="1.5" opacity="0.5">
-                        <!-- USA to UK -->
-                        <path class="connection-line" d="M 193 117 Q 290 70 400 86" />
-                        <!-- USA to Brazil -->
-                        <path class="connection-line" d="M 193 117 Q 240 180 296 252" style="animation-delay: 0.5s;" />
-                        <!-- UK to South Africa -->
-                        <path class="connection-line" d="M 400 86 Q 430 180 462 258" style="animation-delay: 1s;" />
-                        <!-- UK to India -->
-                        <path class="connection-line" d="M 400 86 Q 480 100 572 136" style="animation-delay: 0.8s;" />
-                        <!-- India to China -->
-                        <path class="connection-line" d="M 572 136 Q 610 115 658 111" style="animation-delay: 1.2s;" />
-                        <!-- China to Japan -->
-                        <path class="connection-line" d="M 658 111 Q 695 105 711 121" style="animation-delay: 1.5s;" />
-                        <!-- China to Australia -->
-                        <path class="connection-line" d="M 658 111 Q 700 200 736 275" style="animation-delay: 1.8s;" />
-                        <!-- Mexico to USA -->
-                        <path class="connection-line" d="M 179 157 Q 185 140 193 117" style="animation-delay: 2s;" />
-                    </g>
-
-                    <!-- Map Markers - Properly Calculated (800x400 equirectangular projection) -->
-                    <!-- Formula: X = (lon + 180) * (800/360), Y = (90 - lat) * (400/180) -->
-                    <g class="markers">
-                        <!-- USA - Springfield, Missouri: 37.2°N, 93.3°W → X=193, Y=117 -->
-                        <g class="marker" transform="translate(193, 117)" data-name="Global HQ - Springfield, USA">
-                            <circle r="10" fill="#d4a553" opacity="0.3" class="pulse-ring" />
-                            <circle r="5" fill="#d4a553" filter="url(#markerGlow)" class="marker-dot" />
-                            <circle r="2.5" fill="#fff" />
-                        </g>
-
-                        <!-- UK - London: 51.5°N, 0°W → X=400, Y=86 -->
-                        <g class="marker" transform="translate(400, 86)" data-name="Enactus UK - London">
-                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="3" fill="#c4704f" />
-                            <circle r="1.5" fill="#fff" />
-                        </g>
-
-                        <!-- Netherlands - Amsterdam: 52.4°N, 4.9°E → X=411, Y=83 -->
-                        <g class="marker" transform="translate(411, 83)" data-name="Enactus Netherlands">
-                            <circle r="5" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="2.5" fill="#c4704f" />
-                            <circle r="1.2" fill="#fff" />
-                        </g>
-
-                        <!-- Egypt - Cairo: 30°N, 31.2°E → X=469, Y=133 -->
-                        <g class="marker" transform="translate(469, 133)" data-name="Enactus Egypt - Cairo">
-                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="3" fill="#c4704f" />
-                            <circle r="1.5" fill="#fff" />
-                        </g>
-
-                        <!-- South Africa - Johannesburg: 26.2°S, 28°E → X=462, Y=258 -->
-                        <g class="marker" transform="translate(462, 258)" data-name="Enactus South Africa">
-                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="3" fill="#c4704f" />
-                            <circle r="1.5" fill="#fff" />
-                        </g>
-
-                        <!-- India - New Delhi: 28.6°N, 77.2°E → X=572, Y=136 -->
-                        <g class="marker" transform="translate(572, 136)" data-name="Enactus India - New Delhi">
-                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="3" fill="#c4704f" />
-                            <circle r="1.5" fill="#fff" />
-                        </g>
-
-                        <!-- China - Beijing: 39.9°N, 116.4°E → X=658, Y=111 -->
-                        <g class="marker" transform="translate(658, 111)" data-name="Enactus China - Beijing">
-                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="3" fill="#c4704f" />
-                            <circle r="1.5" fill="#fff" />
-                        </g>
-
-                        <!-- Japan - Tokyo: 35.7°N, 139.7°E → X=711, Y=121 -->
-                        <g class="marker" transform="translate(711, 121)" data-name="Enactus Japan - Tokyo">
-                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="3" fill="#c4704f" />
-                            <circle r="1.5" fill="#fff" />
-                        </g>
-
-                        <!-- Australia - Sydney: 33.9°S, 151.2°E → X=736, Y=275 -->
-                        <g class="marker" transform="translate(736, 275)" data-name="Enactus Australia - Sydney">
-                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="3" fill="#c4704f" />
-                            <circle r="1.5" fill="#fff" />
-                        </g>
-
-                        <!-- Brazil - São Paulo: 23.5°S, 46.6°W → X=296, Y=252 -->
-                        <g class="marker" transform="translate(296, 252)" data-name="Enactus Brazil - São Paulo">
-                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="3" fill="#c4704f" />
-                            <circle r="1.5" fill="#fff" />
-                        </g>
-
-                        <!-- Mexico - Mexico City: 19.4°N, 99.1°W → X=179, Y=157 -->
-                        <g class="marker" transform="translate(179, 157)" data-name="Enactus Mexico">
-                            <circle r="6" fill="#c4704f" opacity="0.3" class="pulse-ring" />
-                            <circle r="3" fill="#c4704f" />
-                            <circle r="1.5" fill="#fff" />
-                        </g>
-
-                        <!-- ADGIPS Delhi (Our Chapter): 28.7°N, 77.1°E → X=571, Y=136 -->
-                        <g class="marker adgips-marker" transform="translate(571, 136)"
-                            data-name="★ Enactus ADGIPS - New Delhi">
-                            <circle r="16" fill="#EAB308" opacity="0.15" class="pulse-ring" />
-                            <circle r="12" fill="#EAB308" opacity="0.25" class="pulse-ring"
-                                style="animation-delay: 0.3s;" />
-                            <circle r="8" fill="#EAB308" opacity="0.4" class="pulse-ring"
-                                style="animation-delay: 0.6s;" />
-                            <circle r="6" fill="#EAB308" filter="url(#markerGlow)" class="marker-dot" />
-                            <circle r="3" fill="#fff" />
-                        </g>
-                    </g>
-                </svg>
-
-                <!-- Map Legend -->
-                <div class="map-legend">
-                    <div class="legend-item">
-                        <span class="legend-dot hq"></span>
-                        <span>Global Headquarters</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-dot regional"></span>
-                        <span>Regional Offices</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-dot" style="background: #EAB308;"></span>
-                        <span>ADGIPS Chapter</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-line"></span>
-                        <span>Active Connections</span>
-                    </div>
+        <!-- Interactive Constellation Network -->
+        <div class="constellation-network" data-aos="fade-up" data-aos-delay="200">
+            <div class="constellation-wrapper" id="constellationWrapper">
+                <canvas id="constellationCanvas"></canvas>
+                <div id="constellation-tooltip" class="constellation-tooltip"></div>
+            </div>
+            <!-- Network Legend -->
+            <div class="constellation-legend">
+                <div class="legend-item">
+                    <span class="legend-dot hq"></span>
+                    <span>Global Headquarters</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot regional"></span>
+                    <span>Regional Offices</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot adgips-dot"></span>
+                    <span>ADGIPS Chapter</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-line"></span>
+                    <span>Active Connections</span>
                 </div>
             </div>
         </div>
@@ -415,150 +284,362 @@
     </div>
 </section>
 
-<!-- Dotted Map Script -->
+<!-- Constellation Network Script -->
+<script src="{{ url_for('static', filename='js/world_map_data.js') }}?v=2"></script>
 <script>
     (function () {
-        // --- 1. Dotted Map Rendering ---
-        const canvas = document.getElementById('dottedMapCanvas');
+        const canvas = document.getElementById('constellationCanvas');
         if (!canvas) return;
-
         const ctx = canvas.getContext('2d');
-        const wrapper = document.getElementById('dottedMapWrapper');
+        const wrapper = document.getElementById('constellationWrapper');
+        const tooltip = document.getElementById('constellation-tooltip');
 
-        // Load the mask image
-        const mapMask = new Image();
-        mapMask.src = '/static/images/world_map_mask.png';
-        let maskData = null;
-        let maskWidth = 0;
-        let maskHeight = 0;
+        // ... existing code ...
 
-        mapMask.onload = function () {
-            // Create an offscreen canvas to read pixel data
-            const offCanvas = document.createElement('canvas');
-            maskWidth = mapMask.width;
-            maskHeight = mapMask.height;
-            offCanvas.width = maskWidth;
-            offCanvas.height = maskHeight;
-            const offCtx = offCanvas.getContext('2d');
-            offCtx.drawImage(mapMask, 0, 0);
+        let mapPath = null;
+        if (window.WORLD_MAP_PATH) {
+            console.log("World map data loaded from window.");
+            try {
+                mapPath = new Path2D(window.WORLD_MAP_PATH);
+            } catch (e) {
+                console.error("Error creating Path2D:", e);
+            }
+        } else {
+            console.warn("World map data NOT loaded (window.WORLD_MAP_PATH is undefined).");
+        }
+        const nodes = [
+            { id: 'hq', name: 'Global HQ — Springfield, USA', x: 24.08, y: 29.32, type: 'hq', label: 'USA' },
+            { id: 'ca', name: 'Enactus Canada — Toronto', x: 27.95, y: 25.75, type: 'regional', label: 'Canada' },
+            { id: 'mx', name: 'Enactus Mexico — Mexico City', x: 22.42, y: 39.24, type: 'regional', label: 'Mexico' },
+            { id: 'br', name: 'Enactus Brazil — São Paulo', x: 37.04, y: 63.09, type: 'regional', label: 'Brazil' },
+            { id: 'uk', name: 'Enactus UK — Nottingham', x: 49.67, y: 20.58, type: 'regional', label: 'UK' },
+            { id: 'fr', name: 'Enactus France — Paris', x: 50.66, y: 22.84, type: 'regional', label: 'France' },
+            { id: 'de', name: 'Enactus Germany — Cologne', x: 51.93, y: 21.70, type: 'regional', label: 'Germany' },
+            { id: 'ma', name: 'Enactus Morocco — Rabat', x: 48.10, y: 31.10, type: 'regional', label: 'Morocco' },
+            { id: 'ng', name: 'Enactus Nigeria — Lagos', x: 51.00, y: 46.41, type: 'regional', label: 'Nigeria' },
+            { id: 'eg', name: 'Enactus Egypt — Sheikh Zayed', x: 58.61, y: 33.31, type: 'regional', label: 'Egypt' },
+            { id: 'ke', name: 'Enactus Kenya — Nairobi', x: 60.23, y: 50.72, type: 'regional', label: 'Kenya' },
+            { id: 'za', name: 'Enactus South Africa — Johannesburg', x: 57.79, y: 64.55, type: 'regional', label: 'S. Africa' },
+            { id: 'in', name: '★ Enactus ADGIPS — New Delhi', x: 72.0, y: 32.5, type: 'adgips', label: 'ADGIPS' },
+            { id: 'cn', name: 'Enactus China — Shanghai', x: 83.74, y: 32.65, type: 'regional', label: 'China' },
+            { id: 'kr', name: 'Enactus Korea — Seoul', x: 85.27, y: 29.13, type: 'regional', label: 'Korea' },
+            { id: 'jp', name: 'Enactus Japan — Himeji', x: 87.41, y: 30.65, type: 'regional', label: 'Japan' },
+            { id: 'au', name: 'Enactus Australia — Sydney', x: 92.00, y: 68.82, type: 'regional', label: 'Australia' }
+        ];
 
-            // Get pixel data
-            const imageData = offCtx.getImageData(0, 0, maskWidth, maskHeight);
-            maskData = imageData.data;
+        // ─── Connection Pairs ───
+        const connections = [
+            ['hq', 'uk'], ['hq', 'ca'], ['hq', 'br'], ['hq', 'mx'],
+            ['uk', 'fr'], ['uk', 'de'], ['uk', 'ng'], ['uk', 'in'],
+            ['fr', 'ma'], ['eg', 'ke'], ['ke', 'za'],
+            ['in', 'cn'], ['cn', 'kr'], ['cn', 'jp'], ['cn', 'au'],
+            ['uk', 'za'], ['uk', 'eg']
+        ];
 
-            // Draw the map initially
-            drawDottedMap();
+        // ─── State ───
+        let W = 0, H = 0, dpr = 1;
+        let hoveredNode = null;
+        let mouseX = -999, mouseY = -999;
+        let particles = [];
+        let travelingParticles = [];
+        let animTime = 0;
+
+        // ─── Colors ───
+        const COLORS = {
+            hq: '#d4a553',
+            regional: '#c4704f',
+            adgips: '#EAB308',
+            line: 'rgba(212, 165, 83, 0.25)',
+            lineActive: 'rgba(212, 165, 83, 0.6)',
+            particle: 'rgba(212, 165, 83, 0.12)',
+            bg: 'rgba(0, 0, 0, 0.25)',
+            label: 'rgba(255, 255, 255, 0.7)',
+            labelHover: '#ffffff'
         };
 
-        function isLand(x, y, width, height) {
-            if (!maskData) return false;
-
-            // Map canvas coordinates to mask image coordinates
-            // Assuming Equirectangular projection match
-            const maskX = Math.floor((x / width) * maskWidth);
-            const maskY = Math.floor((y / height) * maskHeight);
-
-            if (maskX < 0 || maskX >= maskWidth || maskY < 0 || maskY >= maskHeight) return false;
-
-            // Index in pixel array (R, G, B, A)
-            const index = (maskY * maskWidth + maskX) * 4;
-
-            // Check alpha/opacity or darkness
-            // Our mask is black continents on white/transparent
-            // If transparent (alpha < 50) -> Ocean (if image is transparent bg)
-            // If Black (R<50) -> Land
-
-            const r = maskData[index];
-            const g = maskData[index + 1];
-            const b = maskData[index + 2];
-            const a = maskData[index + 3];
-
-            // If opaque and dark, it's land
-            return a > 100 && r < 100;
-        }
-
-        function drawDottedMap() {
-            if (!maskData) return; // Wait for image load
-
-            const rect = wrapper.getBoundingClientRect();
-            const width = rect.width;
-            // Force 2:1 aspect ratio for accurate Equirectangular projection
-            const height = width / 2; // Math.max(300, rect.height);
-
-            // Update wrapper height to fit the map if needed, or just center it
-            // wrapper.style.height = height + 'px'; 
-
-            canvas.width = width * window.devicePixelRatio;
-            canvas.height = height * window.devicePixelRatio;
-            canvas.style.width = width + 'px';
-            canvas.style.height = height + 'px';
-
-            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-            ctx.clearRect(0, 0, width, height);
-
-            const dotSize = 1.25; // Slightly smaller dots for higher detail
-            const spacing = 6;    // Tighter spacing for better resolution
-            const dotColor = 'rgba(212, 165, 83, 0.15)'; // Faint dots for ocean
-            const landColor = 'rgba(212, 165, 83, 0.8)'; // Bright dots for land
-
-            // Draw dot grid
-            for (let y = spacing / 2; y < height; y += spacing) {
-                for (let x = spacing / 2; x < width; x += spacing) {
-                    const land = isLand(x, y, width, height);
-
-                    if (land || true) { // Draw ocean dots too? Or just land?
-                        // Let's draw ocean dots very faintly for context, land dots brightly
-                        ctx.beginPath();
-                        if (land) {
-                            ctx.arc(x, y, dotSize, 0, Math.PI * 2);
-                            ctx.fillStyle = landColor;
-                            ctx.fill();
-                        } else {
-                            // Optional: Faint ocean dots
-                            ctx.arc(x, y, dotSize * 0.5, 0, Math.PI * 2);
-                            ctx.fillStyle = dotColor;
-                            ctx.fill();
-                        }
-                    }
-                }
+        // ─── Background Particles ───
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((W * H) / 12000);
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    r: Math.random() * 1.5 + 0.5,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.2,
+                    opacity: Math.random() * 0.3 + 0.05
+                });
             }
         }
 
-        // Redraw on resize
-        let resizeTimeout;
-        window.addEventListener('resize', function () {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(drawDottedMap, 150);
-        });
-
-        // --- 2. Interactive Tooltips ---
-        const tooltip = document.getElementById('map-tooltip');
-        const markers = document.querySelectorAll('.marker');
-
-        if (tooltip && markers.length > 0) {
-            markers.forEach(marker => {
-                marker.addEventListener('mouseenter', (e) => {
-                    const name = marker.getAttribute('data-name');
-                    if (name) {
-                        tooltip.textContent = name;
-                        tooltip.classList.add('visible');
-                    }
-                });
-
-                marker.addEventListener('mousemove', (e) => {
-                    const wrapperRect = wrapper.getBoundingClientRect();
-                    const x = e.clientX - wrapperRect.left;
-                    const y = e.clientY - wrapperRect.top;
-
-                    tooltip.style.left = x + 'px';
-                    tooltip.style.top = y + 'px';
-                });
-
-                marker.addEventListener('mouseleave', () => {
-                    tooltip.classList.remove('visible');
+        // ─── Traveling Light Particles ───
+        function initTravelers() {
+            travelingParticles = [];
+            connections.forEach((conn, i) => {
+                travelingParticles.push({
+                    connIdx: i,
+                    t: Math.random(), // position along curve 0..1
+                    speed: 0.002 + Math.random() * 0.003,
+                    size: 2 + Math.random() * 2
                 });
             });
         }
+
+        // ─── Resize Handler ───
+        function resize() {
+            const rect = wrapper.getBoundingClientRect();
+            dpr = window.devicePixelRatio || 1;
+            W = rect.width;
+            H = Math.max(400, W * 0.5);
+            canvas.width = W * dpr;
+            canvas.height = H * dpr;
+            canvas.style.width = W + 'px';
+            canvas.style.height = H + 'px';
+            wrapper.style.height = H + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            initParticles();
+            initTravelers();
+        }
+
+        // ─── Get pixel position from node ───
+        function nodePos(node) {
+            return { x: (node.x / 100) * W, y: (node.y / 100) * H };
+        }
+
+        function findNode(id) {
+            return nodes.find(n => n.id === id);
+        }
+
+        // ─── Quadratic bezier control point (arc upward) ───
+        function getControlPoint(p1, p2) {
+            const mx = (p1.x + p2.x) / 2;
+            const my = (p1.y + p2.y) / 2;
+            const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+            const offset = dist * 0.2;
+            return { x: mx, y: my - offset };
+        }
+
+        // ─── Point on quadratic bezier ───
+        function bezierPoint(p1, cp, p2, t) {
+            const u = 1 - t;
+            return {
+                x: u * u * p1.x + 2 * u * t * cp.x + t * t * p2.x,
+                y: u * u * p1.y + 2 * u * t * cp.y + t * t * p2.y
+            };
+        }
+
+        // Map path already initialized above
+
+        // ─── Draw ───
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+
+            // Background
+            ctx.fillStyle = COLORS.bg;
+            ctx.beginPath();
+            ctx.roundRect(0, 0, W, H, 20);
+            ctx.fill();
+
+            // ── Background Map ──
+            if (mapPath) {
+                ctx.save();
+                // Map data is normalized to 1000x500. Scale to fit canvas.
+                ctx.scale(W / 1000, H / 500);
+
+                // Fill
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+                ctx.fill(mapPath);
+
+                // Stroke (optional, faint)
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+                ctx.lineWidth = 0.5;
+                ctx.stroke(mapPath);
+
+                ctx.restore();
+            }
+
+            // ── Background Particles ──
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0) p.x = W;
+                if (p.x > W) p.x = 0;
+                if (p.y < 0) p.y = H;
+                if (p.y > H) p.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(212, 165, 83, ${p.opacity})`;
+                ctx.fill();
+            });
+
+            // ── Connection Lines ──
+            connections.forEach(([fromId, toId], idx) => {
+                const from = nodePos(findNode(fromId));
+                const to = nodePos(findNode(toId));
+                const cp = getControlPoint(from, to);
+
+                // Animated dash
+                const dashPhase = (animTime * 30 + idx * 50) % 200;
+
+                ctx.beginPath();
+                ctx.moveTo(from.x, from.y);
+                ctx.quadraticCurveTo(cp.x, cp.y, to.x, to.y);
+
+                const isHovered = hoveredNode && (hoveredNode.id === fromId || hoveredNode.id === toId);
+                ctx.strokeStyle = isHovered ? COLORS.lineActive : COLORS.line;
+                ctx.lineWidth = isHovered ? 2 : 1;
+                ctx.setLineDash([8, 12]);
+                ctx.lineDashOffset = -dashPhase;
+                ctx.stroke();
+                ctx.setLineDash([]);
+            });
+
+            // ── Traveling Light Particles ──
+            travelingParticles.forEach(tp => {
+                tp.t += tp.speed;
+                if (tp.t > 1) tp.t = 0;
+
+                const conn = connections[tp.connIdx];
+                const from = nodePos(findNode(conn[0]));
+                const to = nodePos(findNode(conn[1]));
+                const cp = getControlPoint(from, to);
+                const pt = bezierPoint(from, cp, to, tp.t);
+
+                // Glow effect
+                const grad = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, tp.size * 4);
+                grad.addColorStop(0, 'rgba(212, 165, 83, 0.6)');
+                grad.addColorStop(1, 'rgba(212, 165, 83, 0)');
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, tp.size * 4, 0, Math.PI * 2);
+                ctx.fillStyle = grad;
+                ctx.fill();
+
+                // Core
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, tp.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                ctx.fill();
+            });
+
+            // ── Nodes ──
+            nodes.forEach(node => {
+                const pos = nodePos(node);
+                const isHovered = hoveredNode === node;
+                const baseR = node.type === 'hq' ? 8 : node.type === 'adgips' ? 10 : 5;
+                const r = isHovered ? baseR * 1.5 : baseR;
+                const color = COLORS[node.type];
+
+                // Outer glow pulse
+                const pulse = Math.sin(animTime * 2 + nodes.indexOf(node)) * 0.3 + 0.5;
+
+                if (node.type === 'adgips') {
+                    // Triple ring pulse for ADGIPS
+                    for (let ring = 3; ring >= 1; ring--) {
+                        const ringR = r + ring * 10 + Math.sin(animTime * 3 + ring) * 4;
+                        const ringOpacity = (0.15 / ring) * pulse;
+                        ctx.beginPath();
+                        ctx.arc(pos.x, pos.y, ringR, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(234, 179, 8, ${ringOpacity})`;
+                        ctx.fill();
+                    }
+                }
+
+                // Glow
+                const glowR = r * 3;
+                const glow = ctx.createRadialGradient(pos.x, pos.y, r * 0.5, pos.x, pos.y, glowR);
+                glow.addColorStop(0, color.replace(')', `, ${0.4 * pulse})`).replace('rgb', 'rgba'));
+                glow.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, glowR, 0, Math.PI * 2);
+                ctx.fillStyle = glow;
+                ctx.fill();
+
+                // Main dot
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, r, 0, Math.PI * 2);
+                ctx.fillStyle = color;
+                ctx.fill();
+
+                // White center
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, r * 0.4, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.fill();
+
+                // Label
+                const fontSize = isHovered ? 13 : node.type === 'adgips' ? 12 : 10;
+                ctx.font = `${isHovered ? '700' : '600'} ${fontSize}px 'Inter', 'Segoe UI', sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.fillStyle = isHovered ? COLORS.labelHover : COLORS.label;
+
+                // Label background
+                const labelText = node.label;
+                const metrics = ctx.measureText(labelText);
+                const labelY = pos.y + r + 16;
+                const padX = 6, padY = 3;
+
+                ctx.fillStyle = 'rgba(26, 60, 52, 0.8)';
+                ctx.beginPath();
+                ctx.roundRect(
+                    pos.x - metrics.width / 2 - padX,
+                    labelY - fontSize / 2 - padY - 2,
+                    metrics.width + padX * 2,
+                    fontSize + padY * 2,
+                    4
+                );
+                ctx.fill();
+
+                ctx.fillStyle = isHovered ? COLORS.labelHover : COLORS.label;
+                ctx.fillText(labelText, pos.x, labelY + 2);
+            });
+
+            animTime += 0.016;
+            requestAnimationFrame(draw);
+        }
+
+        // ─── Mouse Interaction ───
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+
+            let found = null;
+            const hitR = 20;
+            nodes.forEach(node => {
+                const pos = nodePos(node);
+                const dist = Math.hypot(mouseX - pos.x, mouseY - pos.y);
+                if (dist < hitR) found = node;
+            });
+
+            hoveredNode = found;
+            canvas.style.cursor = found ? 'pointer' : 'default';
+
+            if (found && tooltip) {
+                tooltip.textContent = found.name;
+                tooltip.style.left = mouseX + 'px';
+                tooltip.style.top = (mouseY - 10) + 'px';
+                tooltip.classList.add('visible');
+            } else if (tooltip) {
+                tooltip.classList.remove('visible');
+            }
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            hoveredNode = null;
+            if (tooltip) tooltip.classList.remove('visible');
+        });
+
+        // ─── Init ───
+        resize();
+        draw();
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(resize, 100);
+        });
     })();
 </script>
 
