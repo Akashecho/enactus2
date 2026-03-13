@@ -28,6 +28,9 @@ db = SQLAlchemy(app)
 
 # --- MODELS ---
 class Event(db.Model):
+    def __init__(self, **kwargs):
+        super(Event, self).__init__(**kwargs)
+
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_day = db.Column(db.String(10), nullable=False) 
@@ -51,6 +54,9 @@ class Event(db.Model):
     brochure_link = db.Column(db.String(500), nullable=True)  # Optional document link
 
 class Registration(db.Model):
+    def __init__(self, **kwargs):
+        super(Registration, self).__init__(**kwargs)
+
     id = db.Column(db.Integer, primary_key=True)
     event_id = db.Column(db.Integer, db.ForeignKey('event.id'), nullable=False)
     # Common fields
@@ -83,6 +89,9 @@ def project_navodaya(): return render_template('project_navodaya.html', title="P
 
 @app.route('/project/astitva')
 def project_astitva(): return render_template('project_astitva.html', title="Project Astitva")
+
+@app.route('/astitva/magazines')
+def astitva_magazines(): return render_template('astitva_magazines.html', title="Astitva Magazines")
 
 @app.route('/project/vriksh')
 def project_vriksh(): return render_template('project_vriksh.html', title="Project Vriksh")
