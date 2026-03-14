@@ -1,54 +1,214 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<section class="container" style="padding-top: 150px;">
-    <div style="text-align: center; margin-bottom: 4rem;" data-aos="fade-up">
+<section class="container" style="padding-top: 150px; padding-bottom: 80px;">
+    <div style="text-align: center; margin-bottom: 2rem;" data-aos="fade-up">
         <h1 style="font-size: 3.5rem;">The Store</h1>
-        <p style="color: var(--text-muted);">Wear the movement. All proceeds go to our projects.</p>
+        <p style="color: var(--text-muted);">Wear the movement. All proceeds go to our projects, empowering communities and fostering sustainability.</p>
     </div>
 
-    <!-- Product Grid -->
-    <div class="product-grid">
+    <!-- NAVODAYA Section -->
+    <h2 class="store-section-title" data-aos="fade-up">NAVODAYA</h2>
+    <div class="product-grid" style="margin-bottom: 5rem;">
 
         <!-- Product 1 -->
-        <div class="product-card" data-aos="fade-up">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80" alt="Tee">
-                <div class="overlay">
-                    <button class="btn-primary">Add to Cart</button>
-                </div>
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1623838271101-70068a83dc53?auto=format&fit=crop&w=600&q=80" alt="Hair Bow">
             </div>
-            <div class="product-info">
-                <h3>Classic Tee / White</h3>
-                <p>$25.00</p>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Hair Bow</h3>
+                <p class="product-desc">Crafted from recycled fabric collected during our college donation drives, this stylish hair bow promotes sustainable fashion while reducing textile waste. Made in collaboration with our partner foundation.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹79</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
             </div>
         </div>
 
         <!-- Product 2 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Bag">
-                <div class="overlay">
-                    <button class="btn-primary">Add to Cart</button>
-                </div>
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&w=600&q=80" alt="Scrunchie">
             </div>
-            <div class="product-info">
-                <h3>Canvas Tote</h3>
-                <p>$15.00</p>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Scrunchie</h3>
+                <p class="product-desc">Our scrunchies are made from recycled cloth sourced through donation drives, transforming unused fabric into a trendy everyday accessory. Comfort, sustainability, and ethical production.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹49</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
             </div>
         </div>
 
         <!-- Product 3 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1551028919-ac6635f0e5c9?auto=format&fit=crop&w=600&q=80" alt="Hoodie">
-                <div class="overlay">
-                    <button class="btn-primary">Add to Cart</button>
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1563241527-2004ab3ba181?auto=format&fit=crop&w=600&q=80" alt="Crochet Fruit Keychain">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Crochet Fruit Keychain</h3>
+                <p class="product-desc">Colorful crochet fruit keychains handcrafted by a group of underprivileged women, providing them sustainable livelihood options. Adds a playful handmade charm to your essentials.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹99</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
                 </div>
             </div>
-            <div class="product-info">
-                <h3>Signature Hoodie</h3>
-                <p>$45.00</p>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1563241527-2004ab3ba181?auto=format&fit=crop&w=600&q=80" alt="Crochet Flower Keychain">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Crochet Flower Keychain</h3>
+                <p class="product-desc">Beautifully handcrafted crochet flower keychains made by skilled women artisans. Each keychain reflects creativity and supports women’s empowerment through meaningful work.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹99</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&w=600&q=80" alt="Crochet Sunflower Keychain">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Crochet Sunflower Keychain (Large)</h3>
+                <p class="product-desc">This large sunflower crochet keychain is beautifully handmade by underprivileged women artisans. It symbolizes positivity and empowerment while supporting skill-based livelihoods.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹199</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="Crochet Heart Earrings">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Crochet Heart Earrings</h3>
+                <p class="product-desc">Handcrafted crochet heart earrings that blend creativity with social impact. Made by skilled women artisans, supporting empowerment and sustainable handmade craftsmanship.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹79</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="Crochet Flower Earrings">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Crochet Flower Earrings</h3>
+                <p class="product-desc">Delicate crochet flower earrings locally handcrafted. They add a unique handmade touch to your style while supporting community-based craftsmanship and empowering artisans.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹119</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Crochet Bookmark">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Crochet Bookmark</h3>
+                <p class="product-desc">Lovingly handmade by women artisans, turning simple threads into beautiful reading companions. Each purchase helps support sustainable livelihoods and promotes artistry.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹79</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80" alt="Yin Yang Bracelets">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Yin Yang Bracelets</h3>
+                <p class="product-desc">Inspired by the Yin Yang symbol of balance, these bracelets are handcrafted using durable paracord. The woven knot design represents unity of light and dark coming together.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹79</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- VRIKSH Section -->
+    <h2 class="store-section-title" data-aos="fade-up">VRIKSH</h2>
+    <div class="product-grid">
+
+        <!-- Product 10 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1599643478524-fb524fa0a14e?auto=format&fit=crop&w=600&q=80" alt="Resin Keychain">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Resin Keychain</h3>
+                <p class="product-desc">These handcrafted resin keychains preserve real temple flowers, giving them a second life. Each piece captures the essence of devotion while promoting sustainability.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹149</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 11 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80" alt="Resin Bracelet">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Resin Bracelet</h3>
+                <p class="product-desc">Our resin bracelets are delicately crafted using preserved temple flowers, turning sacred blooms into wearable keepsakes. Represents spirituality, sustainability, and handmade artistry.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹199</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 12 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1599643478524-fb524fa0a14e?auto=format&fit=crop&w=600&q=80" alt="Resin Pendant">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Resin Pendant</h3>
+                <p class="product-desc">These elegant resin pendants feature real temple flowers carefully preserved to retain their natural beauty. Each pendant carries a story of devotion and sustainable upcycling.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹199</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 13 -->
+        <div class="premium-product-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Vintage Bookmark">
+            </div>
+            <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title">Vintage Upcycled Bookmark</h3>
+                <p class="product-desc">Aesthetic bookmarks crafted from reused newspaper and cardboard, transforming discarded materials into vintage-style reading companions. Promotes creative and artistic upcycling.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹69</span>
+                    <button class="skeuomorphic-btn">Add to Cart</button>
+                </div>
             </div>
         </div>
 
