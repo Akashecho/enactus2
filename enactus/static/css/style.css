@@ -413,26 +413,30 @@ nav.nav-scrolled {
     display: inline !important;
 }
 
+.roots-word {
+    color: #1F1F1F !important;
+    display: inline !important;
+}
+
 .accent-word {
     font-family: 'Times New Roman', Times, serif !important;
     font-style: italic !important;
     display: inline !important;
-    background: linear-gradient(
-        to bottom,
-        rgba(212, 165, 83, 1),
-        rgba(230, 213, 184, 1)
-    );
-    /* Grains & Texture using noise SVG */
-    background-image: 
-        url('https://grainy-gradients.vercel.app/noise.svg'),
-        linear-gradient(to bottom, #D4A553, #E6D5B8);
-    background-blend-mode: overlay;
+    background: #C8A75A;
+    background-image: linear-gradient(to bottom, #D4B66E, #C8A75A);
+    background-blend-mode: normal;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1)); /* Sharper shadow */
     letter-spacing: -0.01em;
+    font-weight: 600; /* Added slight weight for sharpness */
+}
+
+/* Ensure nested spans in hero don't break lines unexpectedly */
+.hero-content span span {
+    display: inline !important;
 }
 
 .hero-visual {
@@ -3112,9 +3116,60 @@ select:focus {
     }
 }
 
+.about-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
 .about-hero-content {
     position: relative;
     z-index: 1;
+    text-align: left;
+}
+
+.about-hero-image-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.about-hero-image-box {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    /* Skeuomorphism: Soft organic depth */
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        0 20px 40px -10px rgba(26, 60, 52, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-hero-image-box:hover {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) scale(1.02);
+}
+
+.about-hero-image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.glass-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Glassmorphism */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+    border-radius: inherit;
 }
 
 .about-label {
@@ -3350,9 +3405,9 @@ select:focus {
 
 .story-milestones {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid #e8e4df;
 }
@@ -4949,3 +5004,59 @@ footer p {
 img {
     transition: opacity 0.5s ease-in-out;
 }
+
+/* =========================================
+   25. STORE FILTER STYLES
+   ========================================= */
+.store-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 
+        0 10px 30px rgba(26, 60, 52, 0.05),
+        inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.filter-btn {
+    padding: 0.7rem 2.2rem;
+    border-radius: 40px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #5a6b68;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: var(--font-main);
+    letter-spacing: 0.05em;
+    font-size: 0.95rem;
+}
+
+.filter-btn:hover {
+    color: #1a3c34;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: #fff;
+    color: #1a3c34;
+    border-color: rgba(212, 165, 83, 0.3);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.9);
+    transform: translateY(-3px);
+}
+
+/* Transitions for project sections */
+.project-section {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
