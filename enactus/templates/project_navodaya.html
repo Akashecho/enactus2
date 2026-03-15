@@ -3,7 +3,7 @@
 {% block content %}
 <!-- Project Hero -->
 <section class="project-detail-hero"
-    style="background-image: linear-gradient(rgba(26, 60, 52, 0.85), rgba(26, 60, 52, 0.9)), url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1920&q=80');">
+    style="background-image: linear-gradient(rgba(26, 60, 52, 0.85), rgba(26, 60, 52, 0.9)), url('{{ url_for('static', filename='images/projects/Navodaya_card.png') }}'); background-position: center; background-size: cover;">
     <div class="container">
         <div class="project-hero-content" data-aos="fade-up">
             <a href="/projects" class="back-link">
@@ -90,10 +90,38 @@
             </div>
 
             <div class="overview-image" data-aos="fade-left">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
-                    alt="Students in training">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Overview/P3.png') }}"
+                    alt="Overview" style="width: 100%; height: auto; object-fit: contain; border-radius: 12px; max-height: 500px; background: #f9f9f9;">
                 <div class="image-caption">
-                    <span>Training Session at Najafgarh Community Center</span>
+                    <span>Overview of Project Navodaya</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Behind the Name -->
+<section class="section-vision" style="background: #fdfcf9; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 80px 0;">
+    <div class="container">
+        <div class="overview-grid" style="align-items: center; gap: 4rem;">
+            <div class="overview-image" data-aos="fade-right">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Behind_name.png') }}"
+                    alt="Behind the Name" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
+            </div>
+            <div class="overview-content" data-aos="fade-left">
+                <span class="section-label" style="color: #c4704f;">The Vision</span>
+                <h2>Behind the Name: Navodaya</h2>
+                <p>The word <strong>Navodaya</strong> translates to <em>"New Dawn"</em> or <em>"A New Beginning"</em>. This name reflects our core mission: to provide a fresh start for individuals from marginalized communities by equipping them with skills that lead to dignity and independence.</p>
+                <p>Just as a new dawn brings hope and light, Project Navodaya aims to illuminate paths of opportunity through sustainable craftsmanship. By transforming waste into value, we are not just creating products; we are crafting new stories of resilience and growth.</p>
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #c4704f;"></div>
+                        <span style="font-weight: 500; color: #1a3c34;">Empowerment through Craft</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #c4704f;"></div>
+                        <span style="font-weight: 500; color: #1a3c34;">Environmental Stewardship</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,6 +214,33 @@
     </div>
 </section>
 
+<!-- Product Photos -->
+<section class="impact-gallery-section" style="background-color: #f7f9fc; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+        <div class="section-header centered" data-aos="fade-up">
+            <span class="section-tag">Made with Love</span>
+            <h2>Product Showcase</h2>
+        </div>
+        <div class="gallery-grid" data-aos="fade-up">
+            <div class="gallery-item large">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Product_Photos/p4.jpg') }}" alt="Product" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Product_Photos/P6.jpg') }}" alt="Product" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Product_Photos/ChatGPT Image Mar 15, 2026, 01_50_48 AM.png') }}" alt="Product" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Product_Photos/Copy of ChatGPT Image Mar 14, 2026, 04_03_20 PM.png') }}" alt="Product" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item large">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Product_Photos/1772349635883.jpeg') }}" alt="Product" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Impact Gallery -->
 <section class="impact-gallery-section">
     <div class="container">
@@ -197,24 +252,32 @@
 
         <div class="gallery-grid" data-aos="fade-up">
             <div class="gallery-item large">
-                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80"
-                    alt="Training session">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
-                    alt="Group discussion">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
-                    alt="Workshop">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
-                    alt="Celebration">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Gallery/Big1.jpg') }}"
+                    alt="Gallery item" style="object-fit: cover; width: 100%; height: 100%;">
             </div>
             <div class="gallery-item large">
-                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80"
-                    alt="Community event">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Gallery/Big2.jpg') }}"
+                    alt="Gallery item" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Gallery/Small1.jpg') }}"
+                    alt="Gallery item" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Gallery/Small2.jpg') }}"
+                    alt="Gallery item" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Gallery/Small4.jpeg') }}"
+                    alt="Gallery item" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Gallery/Small3.jpeg') }}"
+                    alt="Gallery item" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item large">
+                <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Gallery/Small5.jpg') }}"
+                    alt="Gallery item" style="object-fit: cover; width: 100%; height: 100%;">
             </div>
         </div>
     </div>
@@ -230,9 +293,9 @@
 
         <div class="stories-carousel" data-aos="fade-up">
             <div class="story-card">
-                <div class="story-image">
-                    <img src="https://images.unsplash.com/photo-1544717304-a2ea0a43ce89?auto=format&fit=crop&w=300&q=80"
-                        alt="Artisan Partner">
+                <div class="story-image" style="width: 80px; height: 80px; overflow: hidden; border-radius: 50%;">
+                    <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Real_Impact (Success_Stories)/WhatsApp Image 2026-03-15 at 12.17.17 AM (1).jpeg') }}"
+                        alt="Artisan Partner" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
                 <div class="story-content">
                     <blockquote>"Through Project Navodaya, we found a steady source of income. Upcycling old clothes into beautiful products has given us financial independence and social confidence."</blockquote>
@@ -244,9 +307,9 @@
             </div>
 
             <div class="story-card">
-                <div class="story-image">
-                    <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=300&q=80"
-                        alt="Workshop Participant">
+                <div class="story-image" style="width: 80px; height: 80px; overflow: hidden; border-radius: 50%;">
+                    <img src="{{ url_for('static', filename='images/projects/Project Navodaya/Real_Impact (Success_Stories)/WhatsApp Image 2026-03-15 at 12.17.17 AM.jpeg') }}"
+                        alt="Workshop Participant" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
                 <div class="story-content">
                     <blockquote>"Learning macramé and fabric printing not only taught me a skill but showed me that waste is truly a resource with untapped potential."</blockquote>

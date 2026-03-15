@@ -655,18 +655,88 @@ def seed_database():
             except Exception as e:
                 print(f"Migration error: {e}")
 
-        if Event.query.count() == 0:
-            e1 = Event(
-                title="Social Entrepreneurship Summit",
-                date_day="12", date_month="NOV",
-                short_desc="Leading the future of social impact.",
-                full_desc="Join industry giants for a masterclass.",
-                image_url="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=800",
-                is_open=True
-            )
-            db.session.add(e1)
-            db.session.commit()
+        # Seeding logic with check for actual content
+        if Event.query.count() <= 1: # If only a placeholder or empty
+            # Clear existing if it's just the old placeholder
+            old_placeholders = Event.query.filter(Event.title.like("%Social Entrepreneurship Summit%")).all()
+            if old_placeholders:
+                for p in old_placeholders:
+                    db.session.delete(p)
+                db.session.commit()
+
+            if Event.query.count() == 0:
+                events_to_seed = [
+                    {
+                        "title": "Chak De Pitch",
+                        "date_day": "22", "date_month": "OCT",
+                        "short_desc": "The ultimate B-Plan competition.",
+                        "full_desc": "Chak De Pitch is our flagship business plan competition.",
+                        "image_url": "/static/images/events/Chak_De_Pitch.png",
+                        "event_type": "team",
+                        "is_open": False,
+                        "venue": "Main Auditorium",
+                        "min_team_size": 2, "max_team_size": 4
+                    },
+                    {
+                        "title": "Clash of Carnival",
+                        "date_day": "05", "date_month": "FEB",
+                        "short_desc": "A vibrant celebration of culture.",
+                        "full_desc": "Clash of Carnival brings the campus to life.",
+                        "image_url": "/static/images/events/Clash_Of_Carnival.png",
+                        "event_type": "solo",
+                        "is_open": False,
+                        "venue": "Campus Grounds"
+                    },
+                    {
+                        "title": "Corporate Titanic",
+                        "date_day": "14", "date_month": "MAR",
+                        "short_desc": "Can you navigate the corporate high seas?",
+                        "full_desc": "Management simulation event.",
+                        "image_url": "/static/images/events/Corporate_Titanic.png",
+                        "event_type": "team",
+                        "is_open": True,
+                        "venue": "Seminar Hall",
+                        "min_team_size": 3, "max_team_size": 5
+                    },
+                    {
+                        "title": "Enpitch",
+                        "date_day": "18", "date_month": "SEP",
+                        "short_desc": "Refine your project ideas.",
+                        "full_desc": "Internal pitching event.",
+                        "image_url": "/static/images/events/Enpitch.png",
+                        "event_type": "solo",
+                        "is_open": False,
+                        "venue": "Lab 101"
+                    },
+                    {
+                        "title": "Fresh-O-Preneur",
+                        "date_day": "10", "date_month": "JAN",
+                        "short_desc": "Onboarding for young leaders.",
+                        "full_desc": "Event for first-year students.",
+                        "image_url": "/static/images/events/Fresh_O_Preneur.png",
+                        "event_type": "solo",
+                        "is_open": False,
+                        "venue": "M-Block"
+                    },
+                    {
+                        "title": "Meme-O-Crisy",
+                        "date_day": "01", "date_month": "APR",
+                        "short_desc": "Humor for a cause.",
+                        "full_desc": "Online meme competition.",
+                        "image_url": "/static/images/events/Meme_O_Crisy.png",
+                        "event_type": "solo",
+                        "is_open": False,
+                        "venue": "Online"
+                    }
+                ]
+
+                for ev_data in events_to_seed:
+                    new_ev = Event(**ev_data)
+                    db.session.add(new_ev)
+                
+                db.session.commit()
+                print("Database seeded with real events.")
 
 if __name__ == '__main__':
     seed_database()
-    app.run(host='0.0.0.0', port=5003, threaded=True, debug=True)
+    app.run(host='0.0.0.0', port=5005, threaded=True, debug=True)

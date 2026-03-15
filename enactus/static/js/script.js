@@ -202,8 +202,34 @@ function initTiltEffect() {
 }
 
 // =============================================
-// GALLERY HORIZONTAL SCROLL
+// GALLERY HORIZONTAL SCROLL (INFINITE)
 // =============================================
+
+function initGalleryInfinite() {
+    const track = document.getElementById('galleryTrack');
+    const wrapper = document.querySelector('.gallery-scroll-wrapper');
+    if (!track || !wrapper) return;
+
+    // Clone items for infinite scroll effect
+    const items = track.innerHTML;
+    track.innerHTML = items + items + items; // Triple for safety
+
+    // Center the scroll
+    const singleWidth = track.scrollWidth / 3;
+    wrapper.scrollLeft = singleWidth;
+
+    // Boundary check for infinite feel
+    wrapper.addEventListener('scroll', () => {
+        const scrollPos = wrapper.scrollLeft;
+        if (scrollPos <= 0) {
+            wrapper.scrollLeft = singleWidth;
+        } else if (scrollPos >= singleWidth * 2) {
+            wrapper.scrollLeft = singleWidth;
+        }
+    });
+
+    initGalleryDrag(wrapper);
+}
 
 function scrollGallery(direction) {
     const wrapper = document.querySelector('.gallery-scroll-wrapper');
@@ -216,10 +242,7 @@ function scrollGallery(direction) {
     });
 }
 
-function initGalleryDrag() {
-    const wrapper = document.querySelector('.gallery-scroll-wrapper');
-    if (!wrapper) return;
-
+function initGalleryDrag(wrapper) {
     let isDown = false;
     let startX;
     let scrollLeft;
@@ -260,40 +283,42 @@ function initGalleryDrag() {
 const teamData = {
     "10.0": {
         council: [
-            { name: "Arjun Sharma", role: "President", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500", linkedin: "#" },
-            { name: "Priya Gupta", role: "Vice President", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500", linkedin: "#" },
-            { name: "Rohit Kumar", role: "Secretary", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500", linkedin: "#" },
-            { name: "Ananya Singh", role: "Treasurer", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500", linkedin: "#" },
-            { name: "Vikram Patel", role: "Joint Secretary", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500", linkedin: "#" }
+            { name: "Shruti", role: "President", img: "/static/images/team/Council/1) President.jpg", linkedin: "https://www.linkedin.com/in/shruti-shrivastava-9b16142a1", instagram: "https://www.instagram.com/shrutttiiii.27" },
+            { name: "Shivam Naithani", role: "Vice President", img: "/static/images/team/Council/2) Vice President.jpg", linkedin: "https://www.linkedin.com/in/shivam-naithani-76138a2b8/", instagram: "https://www.instagram.com/naithani_shivam_" },
+            { name: "Kushal Goyal", role: "General Secretary", img: "/static/images/team/Council/3) General Secretory.jpg", linkedin: "https://www.linkedin.com/in/kushalgoyaldev/", instagram: "https://www.instagram.com/kushal_goyal_27/" },
+            { name: "Sujal Bhardwaj", role: "PR Head", img: "/static/images/team/Council/4) PR Head.jpg", linkedin: "https://www.linkedin.com/in/sujal-bhardwaj-8332b92b1/", instagram: "https://www.instagram.com/sujjal.__/" }
         ],
         department: [
-            { name: "Sneha Reddy", role: "Tech Head", dept: "Technology", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500", linkedin: "#" },
-            { name: "Karan Mehta", role: "Design Head", dept: "Design", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500", linkedin: "#" },
-            { name: "Neha Agarwal", role: "Marketing Head", dept: "Marketing", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500", linkedin: "#" },
-            { name: "Aditya Joshi", role: "Research Head", dept: "Research", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500", linkedin: "#" },
-            { name: "Pooja Sharma", role: "Operations Head", dept: "Operations", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500", linkedin: "#" },
-            { name: "Rahul Verma", role: "PR Head", dept: "Public Relations", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500", linkedin: "#" }
+            { name: "Tushar Jha", role: "Technical Head", dept: "Technology", img: "/static/images/team/Department heads/1) Technical Head.jpg", linkedin: "https://www.linkedin.com/in/tushar-jha-4350882b1/", instagram: "https://www.instagram.com/tushar_jha._/" },
+            { name: "Ankit Jha", role: "Graphics & Photography Head", dept: "Design", img: "/static/images/team/Department heads/2) Graphics & Photography Head.jpg", linkedin: "https://www.linkedin.com/in/ankitt-jha", instagram: "https://www.instagram.com/ankitt_07/" },
+            { name: "Granth Chawla", role: "Graphics & Photography Head", dept: "Design", img: "/static/images/team/Department heads/3) Graphics & Photography Head.png", linkedin: "https://www.linkedin.com/in/granth-chawla-489965325/", instagram: "https://www.instagram.com/granthchawla_01/" },
+            { name: "Aman Giri", role: "Research And Content Head", dept: "Content", img: "/static/images/team/Department heads/4) Content Head.jpg", linkedin: "https://www.linkedin.com/in/aman-giri-4bb311327", instagram: "https://www.instagram.com/ofc_.aman2g" },
+            { name: "Aniket", role: "Social Media Head", dept: "Marketing", img: "/static/images/team/Department heads/5) Social Media Head.jpg", linkedin: "https://www.linkedin.com/in/", instagram: "https://www.instagram.com/anikethsharmakaushik" },
+            { name: "Radhika", role: "Marketing Head", dept: "Marketing", img: "/static/images/team/Department heads/6) Marketing Head.jpg", linkedin: "https://www.linkedin.com/in/radhika-mittal-0296a8230", instagram: "https://www.instagram.com/enne_radhika/" },
+            { name: "Yug Sharma", role: "Sponsorship Head", dept: "Sponsorship", img: "/static/images/team/Department heads/7) Sponsorship Head.jpeg", linkedin: "https://www.linkedin.com/in/yug-sharma-1b47b7347/", instagram: "https://www.instagram.com/yug_sharmaa__/" }
         ],
         project: [
-            { name: "Divya Nair", role: "Project Utkarsh", dept: "Education", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500", linkedin: "#" },
-            { name: "Amit Kumar", role: "Project Saksham", dept: "Women Empowerment", img: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=500", linkedin: "#" },
-            { name: "Riya Patel", role: "Project Swachh", dept: "Environment", img: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=500", linkedin: "#" },
-            { name: "Saurabh Singh", role: "Project Aahar", dept: "Food Security", img: "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=500", linkedin: "#" }
+            { name: "Vishv Dhama", role: "Project Navodaya Head", dept: "Social Impact", img: "/static/images/team/Project heads/1) Project Navodaya Head.jpg", linkedin: "https://www.linkedin.com/in/vishvdhama1405/", instagram: "https://www.instagram.com/vishv._.dhama/" },
+            { name: "Rubi Negi", role: "Project Navodaya Head", dept: "Social Impact", img: "/static/images/team/Project heads/2) Project Navodaya Head.jpg", linkedin: "https://www.linkedin.com/in/rubi-negi28/", instagram: "#" },
+            { name: "Lakshay Gupta", role: "Project Astitva Head", dept: "Social Impact", img: "/static/images/team/Project heads/3) Project Astitva Head.jpg", linkedin: "https://www.linkedin.com/in/lakshay-gupta-436776349", instagram: "https://www.instagram.com/lakshaayy75" },
+            { name: "S. V. Mounika", role: "Project Astitva Head", dept: "Social Impact", img: "/static/images/team/Project heads/4) Project Astitva Head.jpg", linkedin: "https://www.linkedin.com/in/sangati-veera-mounika", instagram: "https://www.instagram.com/mounikareddy8003" },
+            { name: "Priyanshu", role: "Project Vriksh Head", dept: "Social Impact", img: "/static/images/team/Project heads/5) Project Vriksh Head.jpg", linkedin: "https://www.linkedin.com/in/priyanshu-thakur-301112326/", instagram: "https://www.instagram.com/pri_yanshu88/" },
+            { name: "Swastiki", role: "Project Vriksh Head", dept: "Social Impact", img: "/static/images/team/Project heads/6) Project Vriksh Head.png", linkedin: "https://www.linkedin.com/in/swastiki-vishnoi-871864320", instagram: "https://www.instagram.com/danceamoureuse" }
         ]
     }
 };
 
 // Legacy Data - Past Presidents & Key Leaders
 const legacyData = [
-    { tenure: "1.0", name: "Dr. Rajendra Prasad", designation: "Founder President", achievement: "Established Foundation" },
-    { tenure: "2.0", name: "Anil Kumar Verma", designation: "President", achievement: "First National Recognition" },
-    { tenure: "3.0", name: "Sunita Sharma", designation: "President", achievement: "Community Outreach Pioneer" },
-    { tenure: "4.0", name: "Vikash Agarwal", designation: "President", achievement: "100+ Volunteers Milestone" },
-    { tenure: "5.0", name: "Meera Kapoor", designation: "President", achievement: "International Partnership" },
-    { tenure: "6.0", name: "Sanjay Mehta", designation: "President", achievement: "Digital Transformation" },
-    { tenure: "7.0", name: "Vivek Sharma", designation: "President", achievement: "Campus Expansion" },
-    { tenure: "8.0", name: "Deepak Singh", designation: "President", achievement: "Social Impact Award" },
-    { tenure: "9.0", name: "Manish Gupta", designation: "President", achievement: "10,000 Lives Impacted" }
+    { tenure: "1", name: "Vaishali Aggarwal", designation: "Founder President", achievement: "Established the Enactus foundation." },
+    { tenure: "2", name: "Deepanshu Wadhwa", designation: "President", achievement: "Achieved the first National Recognition." },
+    { tenure: "3", name: "Manasvi Grover", designation: "President", achievement: "Focused on Community Outreach." },
+    { tenure: "4", name: "Aayush Gill", designation: "President", achievement: "Reached the 100+ Volunteers milestone." },
+    { tenure: "5", name: "Tanya Nischal", designation: "President", achievement: "Formed International Partnerships." },
+    { tenure: "6", name: "Akashat Dhaunda", designation: "President", achievement: "Introduced Innovation in Social Tech." },
+    { tenure: "7", name: "Anushka Khanduja", designation: "President", achievement: "Achieved Strategic Impact Scaling." },
+    { tenure: "8", name: "Vibhor Jain", designation: "President", achievement: "National Competition Finalist." },
+    { tenure: "9", name: "Sonika Nautiyal", designation: "President", achievement: "Focused on Sustainable Development Goals." }
 ];
 
 // =============================================
@@ -319,7 +344,7 @@ function renderPortraitCard(member, showDept = false) {
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                     </a>
-                    <a href="#" aria-label="Instagram">
+                    <a href="${member.instagram || '#'}" target="_blank" aria-label="Instagram">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -344,9 +369,16 @@ function renderMemberCard(member, showDept = false) {
             <p class="member-role">${member.role}</p>
             ${deptHtml}
             <div class="member-socials">
-                <a href="${member.linkedin || '#'}" class="social-link" aria-label="LinkedIn">
+                <a href="${member.linkedin || '#'}" target="_blank" class="social-link" aria-label="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="${member.instagram || '#'}" target="_blank" class="social-link" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </a>
             </div>
@@ -465,8 +497,8 @@ document.addEventListener('DOMContentLoaded', () => {
         renderLegacyTable();
     }
 
-    // Gallery drag functionality
-    initGalleryDrag();
+    // Gallery infinite scroll
+    initGalleryInfinite();
 
     // Initialize tilt effect
     initTiltEffect();

@@ -73,7 +73,8 @@ body::before {
     width: 100vw;
     height: 100vh;
     background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.04; /* Very subtle */
+    opacity: 0.04;
+    /* Very subtle */
     pointer-events: none;
     z-index: 9999;
 }
@@ -190,7 +191,7 @@ section {
 .btn-primary:hover {
     background-color: var(--brand-gold);
     border-color: var(--brand-gold);
-    background-image: 
+    background-image:
         url('https://grainy-gradients.vercel.app/noise.svg'),
         linear-gradient(to bottom, var(--brand-gold), var(--brand-gold-soft));
     background-blend-mode: overlay;
@@ -335,6 +336,17 @@ nav.nav-scrolled {
     transform: scale(1.05);
 }
 
+.logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1F1F1F;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    margin-left: 10px;
+    display: inline-block;
+}
+
 
 
 .nav-links {
@@ -396,20 +408,17 @@ nav.nav-scrolled {
 }
 
 .hero-content span.highlight {
-    background: linear-gradient(
-        to bottom,
-        rgba(212, 165, 83, 1),
-        rgba(230, 213, 184, 1)
-    );
-    background-image: 
+    background: linear-gradient(to bottom,
+            rgba(212, 165, 83, 1),
+            rgba(230, 213, 184, 1));
+    background-image:
         url('https://grainy-gradients.vercel.app/noise.svg'),
         linear-gradient(to bottom, #D4A553, #E6D5B8);
     background-blend-mode: overlay;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
     display: inline !important;
 }
 
@@ -428,10 +437,11 @@ nav.nav-scrolled {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
-    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1)); /* Sharper shadow */
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+    /* Sharper shadow */
     letter-spacing: -0.01em;
-    font-weight: 600; /* Added slight weight for sharpness */
+    font-weight: 600;
+    /* Added slight weight for sharpness */
 }
 
 /* Ensure nested spans in hero don't break lines unexpectedly */
@@ -872,8 +882,8 @@ select:focus {
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 24px;
     padding: 1.5rem;
-    box-shadow: 
-        8px 8px 24px rgba(26, 60, 52, 0.06), 
+    box-shadow:
+        8px 8px 24px rgba(26, 60, 52, 0.06),
         -8px -8px 24px rgba(255, 255, 255, 0.8),
         inset 1px 1px 2px rgba(255, 255, 255, 0.9),
         inset -1px -1px 2px rgba(0, 0, 0, 0.02);
@@ -885,8 +895,8 @@ select:focus {
 
 .premium-product-card:hover {
     transform: translateY(-8px);
-    box-shadow: 
-        12px 12px 32px rgba(26, 60, 52, 0.1), 
+    box-shadow:
+        12px 12px 32px rgba(26, 60, 52, 0.1),
         -12px -12px 32px rgba(255, 255, 255, 0.9),
         inset 1px 1px 2px rgba(255, 255, 255, 1);
 }
@@ -899,7 +909,7 @@ select:focus {
     margin-bottom: 1.5rem;
     position: relative;
     /* Inner shadow for skeuomorphism */
-    box-shadow: inset 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .product-image-container img {
@@ -952,17 +962,17 @@ select:focus {
     font-weight: 700;
     font-size: 0.85rem;
     cursor: pointer;
-    box-shadow: 
-        4px 4px 10px rgba(0,0,0,0.05), 
-        -4px -4px 10px rgba(255,255,255,0.8),
-        inset 1px 1px 2px rgba(255,255,255,0.9);
+    box-shadow:
+        4px 4px 10px rgba(0, 0, 0, 0.05),
+        -4px -4px 10px rgba(255, 255, 255, 0.8),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.9);
     transition: all 0.2s ease;
 }
 
 .skeuomorphic-btn:active {
-    box-shadow: 
-        inset 4px 4px 10px rgba(0,0,0,0.05), 
-        inset -4px -4px 10px rgba(255,255,255,0.8);
+    box-shadow:
+        inset 4px 4px 10px rgba(0, 0, 0, 0.05),
+        inset -4px -4px 10px rgba(255, 255, 255, 0.8);
     transform: translateY(2px);
 }
 
@@ -1868,7 +1878,8 @@ select:focus {
 
 .brand-adgips {
     display: inline-block;
-    font-size: 0.7em; /* 30% smaller than "Enactus" */
+    font-size: 0.7em;
+    /* 30% smaller than "Enactus" */
     color: #d4a553;
     margin-left: 0.5rem;
     vertical-align: middle;
@@ -3139,7 +3150,7 @@ select:focus {
     border-radius: 30px;
     overflow: hidden;
     /* Skeuomorphism: Soft organic depth */
-    box-shadow: 
+    box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -1px rgba(0, 0, 0, 0.06),
         0 20px 40px -10px rgba(26, 60, 52, 0.3),
@@ -3508,13 +3519,18 @@ select:focus {
     font-size: 1.1rem;
 }
 
+.gallery-scroll-container {
+    position: relative;
+    width: 100%;
+}
+
 .gallery-scroll-wrapper {
     overflow-x: auto;
     overflow-y: hidden;
     padding: 2rem 0;
-    margin: 0 -5%;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    cursor: grab;
 }
 
 .gallery-scroll-wrapper::-webkit-scrollbar {
@@ -3524,8 +3540,9 @@ select:focus {
 .gallery-track {
     display: flex;
     gap: 1.5rem;
-    padding: 0 5%;
-    min-width: max-content;
+    padding: 0 2rem;
+    width: max-content;
+    /* transition: transform 0.3s ease; No transition here for manual scroll, JS handles it */
 }
 
 .gallery-card {
@@ -3590,26 +3607,37 @@ select:focus {
     margin: 0;
 }
 
-/* Gallery Navigation */
+/* Gallery Navigation - Overlay Version */
 .gallery-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
+    justify-content: space-between;
+    padding: 0 2rem;
+    pointer-events: none;
+    /* Let clicks pass through to scroller except on buttons */
+    z-index: 10;
 }
 
 .gallery-nav-btn {
-    width: 56px;
-    height: 56px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    border: 2px solid #e8e4df;
-    background: #fff;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #1a3c34;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+    /* Enable clicks on buttons */
 }
 
 .gallery-nav-btn:hover {
@@ -4273,7 +4301,7 @@ select:focus {
 .btn-outline:hover {
     background: var(--brand-gold);
     color: var(--text-main);
-    background-image: 
+    background-image:
         url('https://grainy-gradients.vercel.app/noise.svg'),
         linear-gradient(to bottom, var(--brand-gold), var(--brand-gold-soft));
     background-blend-mode: overlay;
@@ -4592,16 +4620,19 @@ footer p {
     nav {
         display: flex !important;
         flex-direction: row !important;
-        flex-wrap: nowrap !important; /* CRITICAL: Prevent stacking */
+        flex-wrap: nowrap !important;
+        /* CRITICAL: Prevent stacking */
         align-items: center !important;
         justify-content: flex-start !important;
         padding: 0 0.8rem !important;
         width: 94% !important;
         top: 0.6rem !important;
         border-radius: 50px !important;
-        height: 40px !important; /* Even smaller height */
+        height: 40px !important;
+        /* Even smaller height */
         min-height: unset !important;
-        gap: 0 !important; /* Gap handled by logo padding */
+        gap: 0 !important;
+        /* Gap handled by logo padding */
     }
 
     .logo {
@@ -4630,7 +4661,8 @@ footer p {
         justify-content: flex-start !important;
         position: static !important;
         width: auto !important;
-        flex: 1 !important; /* Take up all remaining space */
+        flex: 1 !important;
+        /* Take up all remaining space */
         height: 100% !important;
         background: transparent !important;
         backdrop-filter: none !important;
@@ -4650,7 +4682,8 @@ footer p {
     }
 
     .nav-links::-webkit-scrollbar {
-        display: none; /* Hide scrollbar Chrome/Safari */
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
     }
 
     .nav-links li {
@@ -4883,7 +4916,8 @@ footer p {
     }
 
     .past-projects-track {
-        animation: none; /* Disable auto-scroll for better touch control on mobile */
+        animation: none;
+        /* Disable auto-scroll for better touch control on mobile */
         width: max-content;
         padding: 0 1rem;
     }
@@ -4894,7 +4928,8 @@ footer p {
     }
 
     .past-project-icon {
-        height: 100px; /* Larger icon for mobile visibility */
+        height: 100px;
+        /* Larger icon for mobile visibility */
     }
 
     .projects-cta-section {
@@ -5022,7 +5057,7 @@ img {
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 
+    box-shadow:
         0 10px 30px rgba(26, 60, 52, 0.05),
         inset 0 1px 1px rgba(255, 255, 255, 0.7);
 }
@@ -5050,7 +5085,7 @@ img {
     background: #fff;
     color: #1a3c34;
     border-color: rgba(212, 165, 83, 0.3);
-    box-shadow: 
+    box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.08),
         inset 0 2px 4px rgba(255, 255, 255, 0.9);
     transform: translateY(-3px);
@@ -5121,7 +5156,7 @@ img {
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
@@ -5139,7 +5174,7 @@ img {
 
 .modal-image-side {
     flex: 1.2;
-    background: rgba(0,0,0,0.02);
+    background: rgba(0, 0, 0, 0.02);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5151,9 +5186,9 @@ img {
     max-height: 100%;
     object-fit: contain;
     border-radius: 25px;
-    box-shadow: 
-        0 20px 50px rgba(0,0,0,0.15),
-        inset 0 0 100px rgba(255,255,255,0.2);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.15),
+        inset 0 0 100px rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
 }
 
@@ -5219,7 +5254,7 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 0.8rem 1.5rem;
     border-radius: 30px;
     font-weight: 600;
@@ -5227,7 +5262,7 @@ img {
     opacity: 0;
     transition: all 0.4s ease;
     pointer-events: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     z-index: 5;
 }
 
@@ -5244,26 +5279,25 @@ img {
         width: 95%;
         overflow-y: auto;
     }
-    
+
     .modal-content {
         flex-direction: column;
     }
-    
+
     .modal-image-side {
         padding: 2rem;
         min-height: 300px;
     }
-    
+
     .modal-info-side {
         padding: 2rem;
     }
-    
+
     .modal-info-side h2 {
         font-size: 2rem;
     }
-    
+
     .modal-actions {
         flex-direction: column;
     }
 }
-

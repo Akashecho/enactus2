@@ -3,7 +3,7 @@
 {% block content %}
 <!-- Project Hero -->
 <section class="project-detail-hero"
-    style="background-image: linear-gradient(rgba(156, 39, 176, 0.85), rgba(103, 58, 183, 0.9)), url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1920&q=80');">
+    style="background-image: linear-gradient(rgba(156, 39, 176, 0.85), rgba(103, 58, 183, 0.9)), url('{{ url_for('static', filename='images/projects/Astitva_card.png') }}'); background-position: center; background-size: cover;">
     <div class="container">
         <div class="project-hero-content" data-aos="fade-up">
             <a href="/projects" class="back-link">
@@ -98,8 +98,8 @@
             </div>
 
             <div class="overview-image" data-aos="fade-left">
-                <img src="https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?auto=format&fit=crop&w=800&q=80"
-                    alt="Women in workshop">
+                <img src="{{ url_for('static', filename='images/projects/Project Astitva/Overview/Copy of Project Astitva.png') }}"
+                    alt="Overview image of Astitva" style="width: 100%; height: auto; object-fit: contain; border-radius: 12px; max-height: 500px; background: #f9f9f9;">
                 <div class="image-caption">
                     <span>Handicraft Workshop at Dwarka Community Center</span>
                 </div>
@@ -107,6 +107,39 @@
         </div>
     </div>
 </section>
+ 
+<!-- Behind the Name -->
+<section class="section-vision" style="background: #faf5f8; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 80px 0;">
+    <div class="container">
+        <div class="overview-grid" style="align-items: center; gap: 4rem;">
+            <div class="overview-image" data-aos="fade-right">
+                <!-- Using a stylized version of the project logo/overview image -->
+                <div style="position: relative;">
+                    <img src="{{ url_for('static', filename='images/projects/Project Astitva/Overview/Copy of Project Astitva.png') }}"
+                        alt="Astitva Vision" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(233, 30, 99, 0.1);">
+                    <div style="position: absolute; inset:0; border-radius: 20px; background: linear-gradient(45deg, rgba(233, 30, 99, 0.1), transparent);"></div>
+                </div>
+            </div>
+            <div class="overview-content" data-aos="fade-left">
+                <span class="section-label" style="color: #E91E63;">The Core Identity</span>
+                <h2>Behind the Name: Astitva</h2>
+                <p>The word <strong>Astitva</strong> is a Sanskrit term meaning <em>"Existence"</em> or <em>"Identity"</em>. Our project is built on the belief that every individual, regardless of their background, deserves to have a recognized identity and the strength to define their own existence.</p>
+                <p>By focusing on women's empowerment and youth skill development, Project Astitva aims to transform "hidden existences" into "powerful identities". Through storytelling in our magazines and skill-building in our workshops, we help individuals reclaim their space in society and write their own narratives of independence.</p>
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #E91E63;"></div>
+                        <span style="font-weight: 500; color: #1a3c34;">Dignity & Self-Worth</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #E91E63;"></div>
+                        <span style="font-weight: 500; color: #1a3c34;">Voice for the Unheard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <!-- Magazine & Blogs Section -->
 <section class="products-services-section" style="background: linear-gradient(180deg, #faf8f5 0%, #fff 100%);">
@@ -311,6 +344,40 @@
         </div>
 
     </div>
+</section>
+
+<!-- Impact Gallery -->
+<section class="impact-gallery-section" style="background-color: #f7f9fc; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+        <div class="section-header centered" data-aos="fade-up">
+            <span class="section-tag" style="background: rgba(233, 30, 99, 0.1); color: #E91E63;">Our Journey</span>
+            <h2>Impact Gallery</h2>
+            <p>Moments that define our mission</p>
+        </div>
+
+        <div class="gallery-grid" data-aos="fade-up">
+            <div class="gallery-item large">
+                <img src="{{ url_for('static', filename='images/projects/Project Astitva/Gallery/Big1.jpeg') }}" alt="Astitva Gallery" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item large">
+                <img src="{{ url_for('static', filename='images/projects/Project Astitva/Gallery/Big2.jpeg') }}" alt="Astitva Gallery" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Astitva/Gallery/Small1.jpg') }}" alt="Astitva Gallery" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Astitva/Gallery/Small2.jpg') }}" alt="Astitva Gallery" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Astitva/Gallery/Small3.jpeg') }}" alt="Astitva Gallery" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/projects/Project Astitva/Gallery/Small4.jpeg') }}" alt="Astitva Gallery" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="gallery-item large">
+                <img src="{{ url_for('static', filename='images/projects/Project Astitva/Gallery/Small5.jpg') }}" alt="Astitva Gallery" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+        </div>
     </div>
 </section>
 
@@ -324,9 +391,9 @@
 
         <div class="stories-carousel" data-aos="fade-up">
             <div class="story-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                <div class="story-image">
-                    <img src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=300&q=80"
-                        alt="Local Farmer">
+                <div class="story-image" style="width: 80px; height: 80px; overflow: hidden; border-radius: 50%;">
+                    <img src="{{ url_for('static', filename='images/projects/Project Astitva/Voice_Of_Astitva/WhatsApp Image 2026-03-15 at 12.17.17 AM.jpeg') }}"
+                        alt="Local Farmer" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
                 <div class="story-content">
                     <blockquote style="color: #fff;">"Switching to Astitva's organic fertilizer has not only improved
@@ -340,9 +407,9 @@
             </div>
 
             <div class="story-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                <div class="story-image">
-                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=300&q=80"
-                        alt="Urban Gardener">
+                <div class="story-image" style="width: 80px; height: 80px; overflow: hidden; border-radius: 50%;">
+                    <img src="{{ url_for('static', filename='images/projects/Project Astitva/Voice_Of_Astitva/WhatsApp Image 2026-03-15 at 12.17.17 AM (1).jpeg') }}"
+                        alt="Urban Gardener" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
                 <div class="story-content">
                     <blockquote style="color: #fff;">"We are thrilled to use an eco-friendly fertilizer derived from

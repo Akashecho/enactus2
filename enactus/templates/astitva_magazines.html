@@ -21,7 +21,8 @@
             
             <!-- Quick Edition Selector (Filters) -->
             <div class="magazine-filters" style="margin-top: 2rem;">
-                <button class="filter-btn active" onclick="showEdition('edition6')">Edition 6 (2025)</button>
+                <button class="filter-btn active" onclick="showEdition('edition7')">Edition 7 (Latest)</button>
+                <button class="filter-btn" onclick="showEdition('edition6')">Edition 6 (2025)</button>
                 <button class="filter-btn" onclick="showEdition('edition5')">Edition 5 (8.0)</button>
                 <button class="filter-btn" onclick="showEdition('edition4')">Edition 4 (7.0)</button>
                 <button class="filter-btn" onclick="showEdition('edition3')">Edition 3 (6.0)</button>
@@ -39,8 +40,39 @@
 
     <div class="container" style="position: relative; z-index: 1;">
         
+        <!-- EDITION 7 -->
+        <div id="edition7" class="edition-container" style="display: block;">
+            <div class="magazine-intro-grid" data-aos="fade-up">
+                <div class="intro-text-side">
+                    <span class="section-tag skeuo-tag" style="color: #009688;">Latest Release: Media Manipulation</span>
+                    <h2 class="gradient-text" style="background: linear-gradient(135deg, #009688, #2E7D32); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Gutargu Edition 7</h2>
+                    <div class="edition-description">
+                        <p>Gutargu Edition 7 deconstructs the invisible strings of Media Manipulation and its profound impact on our perception of reality. This issue explores the psychological tactics used to filter information, from the strategic spread of misinformation to the subtle biases embedded within digital algorithms.</p>
+                        <p>By examining how narratives are framed to influence public opinion, the magazine empowers readers to develop a more critical, analytical lens. It serves as an essential guide for navigating the complexities of the modern information age, advocating for transparency, ethical communication, and the reclamation of truth in a world of curated noise.</p>
+                    </div>
+                    <div class="edition-actions">
+                        <a href="{{ url_for('static', filename='magazines/edition_7.pdf') }}" target="_blank" class="btn-primary skeuo-btn" style="background:#009688; border:none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="intro-image-side">
+                    <div class="image-box">
+                        <img src="/static/media/magazine_edition_7_media_manipulation.jpg" alt="Media Manipulation Theme">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pdf-viewer-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <div class="pdf-viewer-inner">
+                    <iframe src="{{ url_for('static', filename='magazines/edition_7.pdf') }}#view=FitH" width="100%" height="800px"></iframe>
+                </div>
+            </div>
+        </div>
+
         <!-- EDITION 6 -->
-        <div id="edition6" class="edition-container" style="display: block;">
+        <div id="edition6" class="edition-container" style="display: none;">
             <div class="magazine-intro-grid" data-aos="fade-up">
                 <div class="intro-text-side">
                     <span class="section-tag skeuo-tag" style="color: #E91E63;">Latest Release: Unspoken</span>
@@ -292,6 +324,7 @@
         margin: 1rem 0;
         background: linear-gradient(135deg, #E91E63, #9C27B0);
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
