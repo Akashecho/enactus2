@@ -41,15 +41,28 @@
         
         <!-- EDITION 6 -->
         <div id="edition6" class="edition-container" style="display: block;">
-            <div class="edition-header" data-aos="fade-up">
-                <span class="section-tag skeuo-tag" style="color: #E91E63;">Latest Release</span>
-                <h2 class="gradient-text">ASTITVA Edition 6 (2025)</h2>
-                <p>The newest stories of empowerment and sustainable impact from our communities.</p>
-                <a href="{{ url_for('static', filename='magazines/edition_6.pdf') }}" target="_blank" class="btn-primary skeuo-btn" style="background:#E91E63; border:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    Download PDF
-                </a>
+            <div class="magazine-intro-grid" data-aos="fade-up">
+                <div class="intro-text-side">
+                    <span class="section-tag skeuo-tag" style="color: #E91E63;">Latest Release: Unspoken</span>
+                    <h2 class="gradient-text">ASTITVA Edition 6 (2025)</h2>
+                    <div class="edition-description">
+                        <p>Gutargu Edition 6, titled "Unspoken", is a powerful movement dedicated to those navigating the maze of their own minds. This issue breaks the silence surrounding mental health, challenging long-standing taboos and shattering stigmas that persist in society. From deconstructing common myths to exploring the intersection of art and psychology, the magazine provides a vital safe space for raw human narratives.</p>
+                        <p>By amplifying voices often lost to whispers, it serves as a manifesto for change, urging readers to prioritize their well-being and join a revolution of radical empathy.</p>
+                    </div>
+                    <div class="edition-actions">
+                        <a href="{{ url_for('static', filename='magazines/edition_6.pdf') }}" target="_blank" class="btn-primary skeuo-btn" style="background:#E91E63; border:none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="intro-image-side">
+                    <div class="image-box">
+                        <img src="/static/media/magazine_edition_6_mental_health_1773583133695.png" alt="Mental Health Theme">
+                    </div>
+                </div>
             </div>
+            
             <div class="pdf-viewer-wrapper" data-aos="fade-up" data-aos-delay="100">
                 <div class="pdf-viewer-inner">
                     <iframe src="{{ url_for('static', filename='magazines/edition_6.pdf') }}#view=FitH" width="100%" height="800px"></iframe>
@@ -59,15 +72,28 @@
 
         <!-- EDITION 5 -->
         <div id="edition5" class="edition-container" style="display: none;">
-            <div class="edition-header">
-                <span class="section-tag skeuo-tag" style="color: #9C27B0;">Archive</span>
-                <h2 class="gradient-text" style="background: linear-gradient(135deg, #9C27B0, #673AB7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Gutargu Astitva Edition 5 (8.0)</h2>
-                <p>Exploring the intersection of storytelling and community progress.</p>
-                <a href="{{ url_for('static', filename='magazines/edition_5.pdf') }}" target="_blank" class="btn-primary skeuo-btn" style="background:#9C27B0; border:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    Download PDF
-                </a>
+            <div class="magazine-intro-grid">
+                <div class="intro-text-side">
+                    <span class="section-tag skeuo-tag" style="color: #9C27B0;">Human Rights: Global Crisis</span>
+                    <h2 class="gradient-text" style="background: linear-gradient(135deg, #9C27B0, #673AB7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Gutargu Astitva Edition 5 (8.0)</h2>
+                    <div class="edition-description">
+                        <p>Gutargu Edition 5 is a harrowing look into the global crisis of Human Trafficking, described as modern-day slavery that transcends all racial and social boundaries. This edition exposes the "uncut panorama" of bondage, detailing how millions are coerced into forced labor and sexual exploitation through fraud and deception.</p>
+                        <p>By highlighting the severe physical and psychological scars left on survivors, the magazine emphasizes the urgent need for awareness of human rights and legal protections like Article 23 of the Indian Constitution. It serves as a call to action, providing red flags for identification and spotlighting NGOs like Prajwala and Prerana that lead the fight for rescue and rehabilitation.</p>
+                    </div>
+                    <div class="edition-actions">
+                        <a href="{{ url_for('static', filename='magazines/edition_5.pdf') }}" target="_blank" class="btn-primary skeuo-btn" style="background:#9C27B0; border:none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="intro-image-side">
+                    <div class="image-box">
+                        <img src="/static/media/magazine_edition_5_human_trafficking_1773583152221.png" alt="Human Trafficking Theme">
+                    </div>
+                </div>
             </div>
+
             <div class="pdf-viewer-wrapper">
                 <div class="pdf-viewer-inner">
                     <iframe src="{{ url_for('static', filename='magazines/edition_5.pdf') }}#view=FitH" width="100%" height="800px"></iframe>
@@ -77,15 +103,28 @@
 
         <!-- EDITION 4 -->
         <div id="edition4" class="edition-container" style="display: none;">
-            <div class="edition-header">
-                <span class="section-tag skeuo-tag" style="color: #673AB7;">Archive</span>
-                <h2 class="gradient-text" style="background: linear-gradient(135deg, #673AB7, #3F51B5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Gutargu Edition 4 (7.0)</h2>
-                <p>Voices from the ground: building identities one step at a time.</p>
-                <a href="{{ url_for('static', filename='magazines/edition_4.pdf') }}" target="_blank" class="btn-primary skeuo-btn" style="background:#673AB7; border:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    Download PDF
-                </a>
+            <div class="magazine-intro-grid">
+                <div class="intro-text-side">
+                    <span class="section-tag skeuo-tag" style="color: #673AB7;">Economic Resilience</span>
+                    <h2 class="gradient-text" style="background: linear-gradient(135deg, #673AB7, #3F51B5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Gutargu Edition 4 (7.0)</h2>
+                    <div class="edition-description">
+                        <p>Gutargu Edition 4 shifts the spotlight to the economic and human toll of the global health crisis, specifically examining the effects of the pandemic on small businesses. This edition documents the resilience and struggle of local enterprises navigating lockdowns, supply chain disruptions, and shifting consumer behaviors.</p>
+                        <p>By highlighting the vulnerability of the unorganized sector and the innovative ways entrepreneurs adapted to survive, the magazine serves as both a record of a historic era and a call to support the backbone of our economy.</p>
+                    </div>
+                    <div class="edition-actions">
+                        <a href="{{ url_for('static', filename='magazines/edition_4.pdf') }}" target="_blank" class="btn-primary skeuo-btn" style="background:#673AB7; border:none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="intro-image-side">
+                    <div class="image-box">
+                        <img src="/static/media/magazine_edition_4_small_business_1773583170570.png" alt="Economic Crisis Theme">
+                    </div>
+                </div>
             </div>
+
             <div class="pdf-viewer-wrapper">
                 <div class="pdf-viewer-inner">
                     <iframe src="{{ url_for('static', filename='magazines/edition_4.pdf') }}#view=FitH" width="100%" height="800px"></iframe>
@@ -95,15 +134,28 @@
 
         <!-- EDITION 3 -->
         <div id="edition3" class="edition-container" style="display: none;">
-            <div class="edition-header">
-                <span class="section-tag skeuo-tag" style="color: #2196F3;">Archive</span>
-                <h2 class="gradient-text" style="background: linear-gradient(135deg, #2196F3, #00BCD4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Guturgu Edition 3 (6.0)</h2>
-                <p>Our early endeavors in magnifying the stories of remarkable women.</p>
-                <a href="{{ url_for('static', filename='magazines/edition_3.pdf') }}" target="_blank" class="btn-primary skeuo-btn" style="background:#2196F3; border:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    Download PDF
-                </a>
+            <div class="magazine-intro-grid">
+                <div class="intro-text-side">
+                    <span class="section-tag skeuo-tag" style="color: #2196F3;">Equality & Dignity</span>
+                    <h2 class="gradient-text" style="background: linear-gradient(135deg, #2196F3, #00BCD4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Guturgu Edition 3 (6.0)</h2>
+                    <div class="edition-description">
+                        <p>Gutargu Edition 3 is a comprehensive exploration of the LGBTQ+ community, focusing on the journey from historical roots to the modern-day fight for dignity. This edition tackles the complexities of identity, highlighting landmark legal victories like the decriminalization of Section 377 in India alongside the global impact of reformers such as Marsha P. Johnson and Harvey Milk.</p>
+                        <p>By addressing the persistent stigmas of discrimination and the emotional hardships of "coming out," it serves as a call for radical empathy and social revolution.</p>
+                    </div>
+                    <div class="edition-actions">
+                        <a href="{{ url_for('static', filename='magazines/edition_3.pdf') }}" target="_blank" class="btn-primary skeuo-btn" style="background:#2196F3; border:none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="intro-image-side">
+                    <div class="image-box">
+                        <img src="/static/media/magazine_edition_3_lgbtq_history_1773583188742.png" alt="LGBTQ+ Dignity Theme">
+                    </div>
+                </div>
             </div>
+
             <div class="pdf-viewer-wrapper">
                 <div class="pdf-viewer-inner">
                     <iframe src="{{ url_for('static', filename='magazines/edition_3.pdf') }}#view=FitH" width="100%" height="800px"></iframe>
@@ -168,9 +220,70 @@
         100% { transform: translate(50px, -80px) scale(1.1) rotate(20deg); }
     }
 
-    .edition-header {
-        text-align: center;
-        margin-bottom: 2rem;
+    /* Magazine Intro Grid */
+    .magazine-intro-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 4rem;
+        margin-bottom: 4rem;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(15px);
+        padding: 3rem;
+        border-radius: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .intro-text-side {
+        text-align: left;
+    }
+
+    .edition-description {
+        margin-top: 1.5rem;
+    }
+
+    .edition-description p {
+        color: #444;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        margin-bottom: 1.2rem;
+    }
+
+    .intro-image-side .image-box {
+        position: relative;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        background: #e0e0e0;
+        aspect-ratio: 4/5;
+        border: 8px solid white;
+    }
+
+    .intro-image-side .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .intro-image-side .image-box:hover img {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 992px) {
+        .magazine-intro-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .intro-text-side {
+            text-align: center;
+        }
+        .intro-image-side {
+            order: -1;
+            max-width: 400px;
+            margin: 0 auto;
+        }
     }
 
     .gradient-text {
@@ -180,13 +293,6 @@
         background: linear-gradient(135deg, #E91E63, #9C27B0);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-    }
-
-    .edition-header p {
-        color: #555;
-        font-size: 1.1rem;
-        max-width: 600px;
-        margin: 0 auto;
     }
 
     .skeuo-tag {

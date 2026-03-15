@@ -26,12 +26,12 @@
         <div class="mission-grid">
             <div class="mission-images" data-aos="fade-right">
                 <div class="mission-img-card" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80"
-                        alt="Team Unity" class="img-breathe">
+                    <img src="{{ url_for('static', filename='images/home/top/Left_image.png') }}"
+                        alt="Left Image" class="img-breathe" style="object-fit: contain; width: 100%; height: 100%; border-radius: inherit;">
                 </div>
                 <div class="mission-img-card" data-aos-delay="200">
-                    <img src="https://enactus-adgips.vercel.app/static/media/encatus.b5c6d776e6567017d63d.png"
-                        alt="Enactus Logo" class="img-breathe">
+                    <img src="{{ url_for('static', filename='images/home/top/Right_image.png') }}"
+                        alt="Right Image" class="img-breathe" style="object-fit: contain; width: 100%; height: 100%; border-radius: inherit;">
                 </div>
             </div>
             <div class="mission-content" data-aos="fade-left">
@@ -66,111 +66,188 @@
         <div class="gallery-track" id="galleryTrack">
             <!-- Gallery Item 1 -->
             <div class="gallery-card" data-aos="fade-up">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80"
-                        alt="Team event">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/1.jpg') }}"
+                        alt="Group Photo" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Team Building</span>
-                        <h4>Annual Retreat 2024</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Our Moments</h4>
                     </div>
                 </div>
             </div>
             <!-- Gallery Item 2 -->
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="50">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80"
-                        alt="Workshop">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/2.jpg') }}"
+                        alt="Team Moment" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Workshop</span>
-                        <h4>Skill Development Camp</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Unity</h4>
                     </div>
                 </div>
             </div>
             <!-- Gallery Item 3 -->
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=600&q=80"
-                        alt="Community">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/3.jpg') }}"
+                        alt="Award Ceremony" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Community</span>
-                        <h4>Village Outreach Program</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Awards & Recognition</h4>
                     </div>
                 </div>
             </div>
             <!-- Gallery Item 4 -->
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80"
-                        alt="Award ceremony">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/4.JPG') }}"
+                        alt="Presentation" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Achievement</span>
-                        <h4>National Competition Finals</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Presentation</h4>
                     </div>
                 </div>
             </div>
             <!-- Gallery Item 5 -->
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80"
-                        alt="Planning session">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/5.jpg') }}"
+                        alt="Team Engagement" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Strategy</span>
-                        <h4>Project Planning Session</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Team Engagement</h4>
                     </div>
                 </div>
             </div>
             <!-- Gallery Item 6 -->
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80"
-                        alt="Women empowerment">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/6.jpeg') }}"
+                        alt="Product Showcase" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Empowerment</span>
-                        <h4>Women Entrepreneurs Meet</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Showcase</h4>
                     </div>
                 </div>
             </div>
             <!-- Gallery Item 7 -->
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=600&q=80"
-                        alt="Celebration">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/7.jpeg') }}"
+                        alt="Team Outing" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Celebration</span>
-                        <h4>Project Milestone Party</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Outing</h4>
                     </div>
                 </div>
             </div>
             <!-- Gallery Item 8 -->
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="350">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80"
-                        alt="Team hands">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/8.png') }}"
+                        alt="Achievement Record" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Unity</span>
-                        <h4>Together We Rise</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Records</h4>
                     </div>
                 </div>
             </div>
             <!-- Gallery Item 9 -->
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80"
-                        alt="Students learning">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/9.jpg') }}"
+                        alt="Community Event" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Learning</span>
-                        <h4>Interactive Sessions</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Community</h4>
                     </div>
                 </div>
             </div>
             <!-- Gallery Item 10 -->
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="450">
-                <div class="gallery-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=600&q=80"
-                        alt="Presentation">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/10.jpg') }}"
+                        alt="Project Demo" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
                     <div class="gallery-overlay">
-                        <span class="gallery-tag">Presentation</span>
-                        <h4>Pitch Day Competition</h4>
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Project</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 11 -->
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/11.jpg') }}"
+                        alt="Campus Drive" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Drive</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 12 -->
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="550">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/12.png') }}"
+                        alt="Graphic Art" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Art</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 13 -->
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/13.png') }}"
+                        alt="Event Invite" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Events</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 14 -->
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="650">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/14.jpg') }}"
+                        alt="Meetings" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Meeting</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 15 -->
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="700">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/15.jpg') }}"
+                        alt="Action Shots" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Actions</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 16 -->
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="750">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/16.jpg') }}"
+                        alt="Interaction" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Interactions</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 17 -->
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="800">
+                <div class="gallery-img-wrapper" style="position: relative; width: 100%; height: 100%;">
+                    <img src="{{ url_for('static', filename='images/home/gallery/17.heic') }}"
+                        alt="Special Highlight" style="object-fit: contain; width: 100%; height: 100%; max-height: 400px; display: block; background: #000;">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Enactus</span>
+                        <h4>Highlights</h4>
                     </div>
                 </div>
             </div>
