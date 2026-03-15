@@ -3,7 +3,7 @@
 {% block content %}
 <!-- Project Hero -->
 <section class="project-detail-hero"
-    style="background-image: linear-gradient(rgba(156, 39, 176, 0.85), rgba(103, 58, 183, 0.9)), url('{{ url_for('static', filename='images/projects/Astitva_card.png') }}'); background-position: center; background-size: cover;">
+    style="background-image: linear-gradient(rgba(156, 39, 176, 0.65), rgba(103, 58, 183, 0.8)), url('/static/images/projects/Astitva_card.png'); background-position: center 30%; background-size: cover;">
     <div class="container">
         <div class="project-hero-content" data-aos="fade-up">
             <a href="/projects" class="back-link">
@@ -108,38 +108,6 @@
     </div>
 </section>
  
-<!-- Behind the Name -->
-<section class="section-vision" style="background: #faf5f8; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 80px 0;">
-    <div class="container">
-        <div class="overview-grid" style="align-items: center; gap: 4rem;">
-            <div class="overview-image" data-aos="fade-right">
-                <!-- Using a stylized version of the project logo/overview image -->
-                <div style="position: relative;">
-                    <img src="{{ url_for('static', filename='images/projects/Project Astitva/Overview/Copy of Project Astitva.png') }}"
-                        alt="Astitva Vision" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(233, 30, 99, 0.1);">
-                    <div style="position: absolute; inset:0; border-radius: 20px; background: linear-gradient(45deg, rgba(233, 30, 99, 0.1), transparent);"></div>
-                </div>
-            </div>
-            <div class="overview-content" data-aos="fade-left">
-                <span class="section-label" style="color: #E91E63;">The Core Identity</span>
-                <h2>Behind the Name: Astitva</h2>
-                <p>The word <strong>Astitva</strong> is a Sanskrit term meaning <em>"Existence"</em> or <em>"Identity"</em>. Our project is built on the belief that every individual, regardless of their background, deserves to have a recognized identity and the strength to define their own existence.</p>
-                <p>By focusing on women's empowerment and youth skill development, Project Astitva aims to transform "hidden existences" into "powerful identities". Through storytelling in our magazines and skill-building in our workshops, we help individuals reclaim their space in society and write their own narratives of independence.</p>
-                <div style="margin-top: 2rem;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #E91E63;"></div>
-                        <span style="font-weight: 500; color: #1a3c34;">Dignity & Self-Worth</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #E91E63;"></div>
-                        <span style="font-weight: 500; color: #1a3c34;">Voice for the Unheard</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <!-- Magazine & Blogs Section -->
 <section class="products-services-section" style="background: linear-gradient(180deg, #faf8f5 0%, #fff 100%);">
@@ -435,6 +403,9 @@
                 <a href="https://medium.com/@enactusadgips" target="_blank" rel="noopener noreferrer"
                     class="btn-primary" style="background: #fff; color: #E91E63;">Our Blogs</a>
                 <a href="/team" class="btn-secondary" style="border-color: #fff; color: #fff;">Our Team</a>
+                <a href="https://www.instagram.com/project_astitva_?igsh=MW9seGE2Zmc5dmhldQ==" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: #fff; color: #fff; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram
+                </a>
             </div>
         </div>
     </div>
