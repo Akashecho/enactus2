@@ -15,14 +15,27 @@
         color: var(--astitva-dark-brown) !important;
     }
 
-    .astitva-textured h2, 
+    .astitva-textured h2,
     .astitva-textured p,
     .astitva-textured .section-tag {
         color: var(--astitva-dark-brown) !important;
     }
 
     /* Update all buttons on this page */
-    .project-cta-section .btn-primary, 
+    .project-cta-section .btn-primary {
+        background: var(--astitva-beige) !important;
+        border: none !important;
+        color: var(--astitva-dark-brown) !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .project-cta-section .btn-secondary {
+        border-color: var(--astitva-beige) !important;
+        color: var(--astitva-beige) !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(5px) !important;
+    }
+
     .publication-cta,
     .btn-primary {
         background: var(--astitva-dark-brown) !important;
@@ -32,22 +45,29 @@
         color: #fff !important;
     }
 
-    .project-cta-section .btn-secondary {
-        border-color: var(--astitva-dark-brown) !important;
-        color: var(--astitva-dark-brown) !important;
-    }
-
-    .section-tag, .project-badge {
-        background: rgba(74, 44, 29, 0.1) !important;
-        color: var(--astitva-dark-brown) !important;
-        border: 1px solid rgba(74, 44, 29, 0.2) !important;
+    .section-tag,
+    .project-badge {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: #F5F5DC !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        padding: 8px 24px !important;
+        border-radius: 50px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        backdrop-filter: blur(10px) !important;
+        display: inline-block !important;
+        margin-bottom: 1.5rem !important;
     }
 
     .hero-stat-number {
         color: #fff !important;
     }
 
-    .section-label, .highlight-icon, .story-author strong {
+    .section-label,
+    .highlight-icon,
+    .story-author strong {
         color: var(--astitva-dark-brown) !important;
     }
 
@@ -69,7 +89,8 @@
         color: #fff !important;
     }
 
-    .story-card blockquote, .story-card .story-author span {
+    .story-card blockquote,
+    .story-card .story-author span {
         color: rgba(255, 255, 255, 0.9) !important;
     }
 
@@ -80,7 +101,7 @@
 
 <!-- Project Hero -->
 <section class="project-detail-hero"
-    style="background-image: linear-gradient(rgba(109, 63, 40, 0.85), rgba(109, 63, 40, 0.95)), url('https://grainy-gradients.vercel.app/noise.svg'), url('/static/images/projects/Astitva_card.png'); background-position: center; background-size: cover; color: #fff;">
+    style="background: linear-gradient(rgba(55, 32, 20, 0.95), rgba(55, 32, 20, 0.816)), url('/static/images/projects/Astitva_card.png'); background-position: center; background-size: cover; color: #fff; padding-top: 8rem;">
     <div class="container">
         <div class="project-hero-content" data-aos="fade-up">
             <a href="/projects" class="back-link">
@@ -91,8 +112,7 @@
                 </svg>
                 Back to Projects
             </a>
-            <div class="project-badge" style="background: rgba(167, 190, 178, 0.2); color: #A7BEB2;">Women Empowerment
-            </div>
+            <div class="project-badge">Social Cause</div>
             <h1>Project Astitva</h1>
             <p class="project-tagline">Identity. Strength. Independence.</p>
 
@@ -440,7 +460,7 @@
 
 <!-- Success Stories -->
 <section class="success-stories-section"
-    style="background: linear-gradient(rgba(167, 190, 178, 0.95), rgba(167, 190, 178, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
+    style="background: linear-gradient(rgba(163, 238, 200, 0.829), rgba(167, 190, 178, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
     <div class="container">
         <div class="section-header centered" data-aos="fade-up">
             <span class="section-tag" style="background: rgba(255, 255, 255, 0.2); color: #fff;">Real Stories</span>
@@ -484,19 +504,21 @@
 
 <!-- Get Involved CTA -->
 <section class="project-cta-section"
-    style="background: linear-gradient(rgba(167, 190, 178, 0.9), rgba(167, 190, 178, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay; color: #fff;">
+    style="background: rgba(55, 32, 20, 0.8); color: #fff; padding: 100px 0; border-top: 1px solid rgba(0,0,0,0.05);">
     <div class="container">
         <div class="project-cta-content" data-aos="fade-up">
-            <h2>Support Women's Empowerment</h2>
-            <p>Share a story, donate materials, or volunteer as a trainer. Every contribution amplifies a woman's voice.
+            <h2 style="color: var(--astitva-beige);">Support Social Cause
+            </h2>
+            <p style="color: rgba(245, 245, 220, 0.8);">Share a story, donate materials, or volunteer as a trainer.
+                Every contribution amplifies a woman's voice.
             </p>
             <div class="cta-buttons">
                 <a href="https://medium.com/@enactusadgips" target="_blank" rel="noopener noreferrer"
-                    class="btn-primary" style="background: #fff; color: #F5F5DC;">Our Blogs</a>
-                <a href="/team" class="btn-secondary" style="border-color: #fff; color: #fff;">Our Team</a>
+                    class="btn-primary">Our Blogs</a>
+                <a href="/team" class="btn-secondary">Our Team</a>
                 <a href="https://www.instagram.com/project_astitva_?igsh=MW9seGE2Zmc5dmhldQ==" target="_blank"
                     rel="noopener noreferrer" class="btn-secondary"
-                    style="border-color: #fff; color: #fff; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                    style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
