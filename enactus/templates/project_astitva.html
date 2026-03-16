@@ -6,6 +6,7 @@
     :root {
         --astitva-beige: #F5F5DC;
         --astitva-dark-brown: #4A2C1D;
+        --astitva-sage: #9BA8A0;
         --textured-beige: linear-gradient(rgba(245, 245, 220, 0.9), rgba(245, 245, 220, 1)), url('https://grainy-gradients.vercel.app/noise.svg');
     }
 
@@ -22,17 +23,57 @@
     }
 
     /* Update all buttons on this page */
+    /* Buttons are handled below in project-cta-section specific styles */
+
+    .success-stories-section {
+        background-color: var(--astitva-sage) !important;
+        background-image: none !important;
+    }
+
+    .project-cta-section {
+        background-color: var(--astitva-dark-brown) !important;
+        background-image: url('https://grainy-gradients.vercel.app/noise.svg') !important;
+        background-blend-mode: overlay !important;
+        padding: 100px 0 !important;
+    }
+
+    .project-cta-section h2 {
+        color: var(--astitva-beige) !important;
+        font-weight: 800 !important;
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .project-cta-section p {
+        color: rgba(245, 245, 220, 0.8) !important;
+        font-size: 1.1rem !important;
+        max-width: 600px !important;
+        margin: 0 auto 2.5rem !important;
+    }
+
+    .project-cta-section .btn-primary,
+    .project-cta-section .btn-secondary {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        border-radius: 50px !important;
+        padding: 12px 32px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+    }
+
     .project-cta-section .btn-primary {
         background: var(--astitva-beige) !important;
-        border: none !important;
         color: var(--astitva-dark-brown) !important;
+        border: none !important;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
     }
 
     .project-cta-section .btn-secondary {
-        border-color: var(--astitva-beige) !important;
-        color: var(--astitva-beige) !important;
         background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid var(--astitva-beige) !important;
+        color: var(--astitva-beige) !important;
         backdrop-filter: blur(5px) !important;
     }
 
@@ -47,9 +88,9 @@
 
     .section-tag,
     .project-badge {
-        background: rgba(255, 255, 255, 0.1) !important;
-        color: #F5F5DC !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        background: rgba(0, 0, 0, 0.05) !important;
+        color: #000 !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
         padding: 8px 24px !important;
         border-radius: 50px !important;
         text-transform: uppercase !important;
@@ -75,6 +116,19 @@
         background: rgba(74, 44, 29, 0.1) !important;
     }
 
+    .pub-icon {
+        background: linear-gradient(135deg, rgba(74, 44, 29, 0.1) 0%, rgba(109, 63, 40, 0.05) 100%) !important;
+        color: #4A2C1D !important;
+    }
+
+    .info-number {
+        color: #4A2C1D !important;
+    }
+
+    .blog-date {
+        color: #4A2C1D !important;
+    }
+
     .service-icon {
         background: linear-gradient(rgba(74, 44, 29, 0.9), rgba(74, 44, 29, 1)), url('https://grainy-gradients.vercel.app/noise.svg') !important;
         background-blend-mode: overlay !important;
@@ -83,17 +137,14 @@
 
     .story-card {
         background: var(--astitva-dark-brown) !important;
-        background-image: url('https://grainy-gradients.vercel.app/noise.svg') !important;
-        background-blend-mode: overlay !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: none !important;
         color: #fff !important;
+        border-radius: 24px !important;
+        padding: 2.5rem !important;
     }
 
     .story-card blockquote,
-    .story-card .story-author span {
-        color: rgba(255, 255, 255, 0.9) !important;
-    }
-
+    .story-card .story-author span,
     .story-card .story-author strong {
         color: #fff !important;
     }
@@ -139,7 +190,7 @@
     <div class="container">
         <div class="overview-grid">
             <div class="overview-content" data-aos="fade-right">
-                <span class="section-label" style="color: #A7BEB2;">Overview</span>
+                <span class="section-label" style="color: #000;">Overview</span>
                 <h2>Sustaining Agriculture, Empowering Farmers</h2>
                 <p>Project Astitva is a sustainable agricultural initiative that bridges environmental conservation with
                     farmer empowerment. The project focuses on creating high-quality, eco-friendly organic fertilizers
@@ -150,7 +201,8 @@
 
                 <div class="overview-highlights">
                     <div class="highlight-item">
-                        <div class="highlight-icon" style="background: rgba(167, 190, 178, 0.1); color: #A7BEB2;">
+                        <div class="highlight-icon"
+                            style="background: rgba(74, 44, 29, 0.1); color: var(--astitva-dark-brown);">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -164,7 +216,8 @@
                         </div>
                     </div>
                     <div class="highlight-item">
-                        <div class="highlight-icon" style="background: rgba(167, 190, 178, 0.1); color: #A7BEB2;">
+                        <div class="highlight-icon"
+                            style="background: rgba(74, 44, 29, 0.1); color: var(--astitva-dark-brown);">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -178,7 +231,8 @@
                         </div>
                     </div>
                     <div class="highlight-item">
-                        <div class="highlight-icon" style="background: rgba(167, 190, 178, 0.1); color: #A7BEB2;">
+                        <div class="highlight-icon"
+                            style="background: rgba(74, 44, 29, 0.1); color: var(--astitva-dark-brown);">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -211,7 +265,7 @@
 <section class="products-services-section" style="background: linear-gradient(180deg, #faf8f5 0%, #fff 100%);">
     <div class="container">
         <div class="section-header centered" data-aos="fade-up">
-            <span class="section-tag" style="background: rgba(167, 190, 178, 0.1); color: #A7BEB2;">Our
+            <span class="section-tag" style="background: rgba(0, 0, 0, 0.05); color: #000;">Our
                 Publications</span>
             <h2>Magazine & Blogs</h2>
             <p>Amplifying women's voices through powerful storytelling</p>
@@ -254,7 +308,7 @@
 
                 <div class="magazine-info">
                     <div class="info-item">
-                        <span class="info-number">15</span>
+                        <span class="info-number">7</span>
                         <span class="info-label">Editions Published</span>
                     </div>
                     <div class="info-item">
@@ -331,7 +385,7 @@
 <section class="products-services-section">
     <div class="container">
         <div class="section-header centered" data-aos="fade-up">
-            <span class="section-tag" style="background: rgba(167, 190, 178, 0.1); color: #A7BEB2;">Sustainable
+            <span class="section-tag" style="background: rgba(0, 0, 0, 0.05); color: #000;">Sustainable
                 Agriculture</span>
             <h2>Our Impact Network</h2>
             <p>Advancing eco-friendly farming and rural development</p>
@@ -340,7 +394,7 @@
         <div class="services-grid" data-aos="fade-up">
             <div class="service-card">
                 <div class="service-icon"
-                    style="background: linear-gradient(rgba(167, 190, 178, 0.9), rgba(167, 190, 178, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
+                    style="background: linear-gradient(rgba(74, 44, 29, 0.9), rgba(74, 44, 29, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -358,7 +412,7 @@
 
             <div class="service-card">
                 <div class="service-icon"
-                    style="background: linear-gradient(rgba(167, 190, 178, 0.9), rgba(167, 190, 178, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
+                    style="background: linear-gradient(rgba(74, 44, 29, 0.9), rgba(74, 44, 29, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -376,7 +430,7 @@
 
             <div class="service-card">
                 <div class="service-icon"
-                    style="background: linear-gradient(rgba(167, 190, 178, 0.9), rgba(167, 190, 178, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
+                    style="background: linear-gradient(rgba(74, 44, 29, 0.9), rgba(74, 44, 29, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -395,7 +449,7 @@
 
             <div class="service-card">
                 <div class="service-icon"
-                    style="background: linear-gradient(rgba(167, 190, 178, 0.9), rgba(167, 190, 178, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
+                    style="background: linear-gradient(rgba(74, 44, 29, 0.9), rgba(74, 44, 29, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -420,7 +474,7 @@
 <section class="impact-gallery-section" style="background-color: #f7f9fc; padding-top: 60px; padding-bottom: 60px;">
     <div class="container">
         <div class="section-header centered" data-aos="fade-up">
-            <span class="section-tag" style="background: rgba(167, 190, 178, 0.1); color: #A7BEB2;">Our Journey</span>
+            <span class="section-tag" style="background: rgba(0, 0, 0, 0.05); color: #000;">Our Journey</span>
             <h2>Impact Gallery</h2>
             <p>Moments that define our mission</p>
         </div>
@@ -459,42 +513,54 @@
 </section>
 
 <!-- Success Stories -->
-<section class="success-stories-section"
-    style="background: linear-gradient(rgba(163, 238, 200, 0.829), rgba(167, 190, 178, 1)), url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;">
+<section class="success-stories-section" style="background-color: var(--astitva-sage); padding: 100px 0;">
     <div class="container">
         <div class="section-header centered" data-aos="fade-up">
-            <span class="section-tag" style="background: rgba(255, 255, 255, 0.2); color: #fff;">Real Stories</span>
-            <h2 style="color: #fff;">Voices of Astitva</h2>
+            <span class="section-tag"
+                style="background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2);">Real
+                Stories</span>
+            <h2 style="color: #333; font-weight: 800; font-size: 3rem;">Voices of Astitva</h2>
         </div>
 
         <div class="stories-carousel" data-aos="fade-up">
-            <div class="story-card" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
-                <div class="story-image" style="width: 80px; height: 80px; overflow: hidden; border-radius: 50%;">
+            <div class="story-card"
+                style="background: var(--astitva-dark-brown); border: none; border-radius: 24px; padding: 2.5rem; display: flex; align-items: center; gap: 2rem;">
+                <div class="story-image"
+                    style="width: 100px; height: 100px; flex-shrink: 0; overflow: hidden; border-radius: 50%; border: 3px solid rgba(255,255,255,0.1);">
                     <img src="{{ url_for('static', filename='images/projects/Project Astitva/Voice_Of_Astitva/WhatsApp Image 2026-03-15 at 12.17.17 AM.jpeg') }}"
                         alt="Local Farmer" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
                 <div class="story-content">
-                    <blockquote style="color: #fff;">"Switching to Astitva's organic fertilizer has not only improved
-                        the quality of our crop but significantly reduced my dependence on expensive chemical
-                        alternatives."</blockquote>
+                    <blockquote
+                        style="color: #ffffff; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.2rem; font-style: italic; border: none; padding: 0;">
+                        "Switching to Astitva's organic fertilizer has not only improved the quality of our crop but
+                        significantly reduced my dependence on expensive chemical alternatives."</blockquote>
                     <div class="story-author">
-                        <strong style="color: #fff;">Local Farmer</strong>
-                        <span style="color: rgba(255,255,255,0.8);">Sustainable Agriculture Program</span>
+                        <strong style="color: #fff; display: block; font-size: 1.2rem; margin-bottom: 0.2rem;">Local
+                            Farmer</strong>
+                        <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;">Sustainable Agriculture
+                            Program</span>
                     </div>
                 </div>
             </div>
 
-            <div class="story-card" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
-                <div class="story-image" style="width: 80px; height: 80px; overflow: hidden; border-radius: 50%;">
+            <div class="story-card"
+                style="background: var(--astitva-dark-brown); border: none; border-radius: 24px; padding: 2.5rem; display: flex; align-items: center; gap: 2rem;">
+                <div class="story-image"
+                    style="width: 100px; height: 100px; flex-shrink: 0; overflow: hidden; border-radius: 50%; border: 3px solid rgba(255,255,255,0.1);">
                     <img src="{{ url_for('static', filename='images/projects/Project Astitva/Voice_Of_Astitva/WhatsApp Image 2026-03-15 at 12.17.17 AM (1).jpeg') }}"
-                        alt="Urban Gardener" style="object-fit: cover; width: 100%; height: 100%;">
+                        alt="Community Partner" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
                 <div class="story-content">
-                    <blockquote style="color: #fff;">"We are thrilled to use an eco-friendly fertilizer derived from
-                        natural waste. It nourishes our plants while keeping our environmental impact low."</blockquote>
+                    <blockquote
+                        style="color: #fff; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.2rem; font-style: italic; border: none; padding: 0;">
+                        "We are thrilled to use an eco-friendly fertilizer derived from natural waste. It nourishes our
+                        plants while keeping our environmental impact low."</blockquote>
                     <div class="story-author">
-                        <strong style="color: #fff;">Urban Gardener</strong>
-                        <span style="color: rgba(255,255,255,0.8);">Community Green Space Project</span>
+                        <strong style="color: #fff; display: block; font-size: 1.2rem; margin-bottom: 0.2rem;">Urban
+                            Gardener</strong>
+                        <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;">Community Green Space
+                            Project</span>
                     </div>
                 </div>
             </div>
@@ -503,13 +569,11 @@
 </section>
 
 <!-- Get Involved CTA -->
-<section class="project-cta-section"
-    style="background: rgba(55, 32, 20, 0.8); color: #fff; padding: 100px 0; border-top: 1px solid rgba(0,0,0,0.05);">
+<section class="project-cta-section">
     <div class="container">
         <div class="project-cta-content" data-aos="fade-up">
-            <h2 style="color: var(--astitva-beige);">Support Social Cause
-            </h2>
-            <p style="color: rgba(245, 245, 220, 0.8);">Share a story, donate materials, or volunteer as a trainer.
+            <h2>Support Socal Cause</h2>
+            <p>Share a story, donate materials, or volunteer as a trainer.
                 Every contribution amplifies a woman's voice.
             </p>
             <div class="cta-buttons">
@@ -517,8 +581,7 @@
                     class="btn-primary">Our Blogs</a>
                 <a href="/team" class="btn-secondary">Our Team</a>
                 <a href="https://www.instagram.com/project_astitva_?igsh=MW9seGE2Zmc5dmhldQ==" target="_blank"
-                    rel="noopener noreferrer" class="btn-secondary"
-                    style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                    rel="noopener noreferrer" class="btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>

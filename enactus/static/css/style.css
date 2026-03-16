@@ -3222,7 +3222,7 @@ select:focus {
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #c4704f;
+    color: #C8A75A;
     margin-bottom: 1.5rem;
     padding: 0.5rem 1.5rem;
     background: rgba(196, 112, 79, 0.1);
@@ -3240,7 +3240,7 @@ select:focus {
 }
 
 .about-title .highlight {
-    color: #957e48;
+    color: #C8A75A;
 }
 
 .about-tagline {
