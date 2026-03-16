@@ -285,7 +285,7 @@ const teamData = {
         council: [
             { name: "Shruti", role: "President", img: "/static/images/team/Council/1) President.jpg", linkedin: "https://www.linkedin.com/in/shruti-shrivastava-9b16142a1", instagram: "https://www.instagram.com/shrutttiiii.27" },
             { name: "Shivam Naithani", role: "Vice President", img: "/static/images/team/Council/2) Vice President.jpg", linkedin: "https://www.linkedin.com/in/shivam-naithani-76138a2b8/", instagram: "https://www.instagram.com/naithani_shivam_" },
-            { name: "Kushal Goyal", role: "General Secretary", img: "/static/images/team/Council/3) General Secretory.jpg", pos: "center 5%", scale: "1.21", linkedin: "https://www.linkedin.com/in/kushalgoyaldev/", instagram: "https://www.instagram.com/kushal_goyal_27/" },
+            { name: "Kushal Goyal", role: "General Secretary", img: "/static/images/team/Council/3) General Secretory.jpg", pos: "center 5%", linkedin: "https://www.linkedin.com/in/kushalgoyaldev/", instagram: "https://www.instagram.com/kushal_goyal_27/" },
             { name: "Sujal Bhardwaj", role: "PR Head", img: "/static/images/team/Council/4) PR Head.jpg", linkedin: "https://www.linkedin.com/in/sujal-bhardwaj-8332b92b1/", instagram: "https://www.instagram.com/sujjal.__/" }
         ],
         department: [
